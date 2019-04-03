@@ -1,0 +1,27 @@
+user:
+  name: 255
+  email: 255
+  password: 6
+  phone: 255
+  address: 255
+author:
+  name: 255
+  password: 6
+  email: 255
+  profile: 255
+publisher:
+  name: 255
+category:
+  name: 255
+book:
+  name: 255
+  author: 255
+  category: 255
+  content: 255
+  publisher: 255
+  pages: 11
+  quantity: 11
+request_detail:
+  quantity: 11
+comment:
+  content: 255

@@ -10,116 +10,138 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2019_04_03_071107) do
 
-  create_table "authors", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "email", null: false
-    t.string "password", null: false
-    t.string "profile", null: false
-    t.string "avatar", null: false
+  create_table "authors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "profile"
+    t.string "avatar"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "books", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci", force: :cascade do |t|
-    t.integer "category_id", null: false
-    t.integer "publisher_id", null: false
-    t.integer "author_id", null: false
-    t.string "name", null: false
-    t.string "author", null: false
-    t.string "category", null: false
-    t.string "content", null: false
-    t.string "year", null: false
-    t.string "publisher", null: false
-    t.integer "number_of_pages", null: false
-    t.integer "quantity", null: false
-    t.index ["author_id"], name: "author_id"
-    t.index ["category_id"], name: "category_id"
-    t.index ["publisher_id"], name: "publisher_id"
+  create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "author_id"
+    t.bigint "category_id"
+    t.bigint "publisher_id"
+    t.string "name"
+    t.string "author"
+    t.string "category"
+    t.string "content"
+    t.date "year"
+    t.string "publisher"
+    t.integer "number_of_pages"
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_books_on_author_id"
+    t.index ["category_id"], name: "index_books_on_category_id"
+    t.index ["publisher_id"], name: "index_books_on_publisher_id"
   end
 
-  create_table "categories", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci", force: :cascade do |t|
-    t.string "name", null: false
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "comments", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "book_id", null: false
-    t.string "content", null: false
-    t.index ["book_id"], name: "id_book"
-    t.index ["user_id"], name: "user_id"
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "book_id"
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_comments_on_book_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "follows", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci", force: :cascade do |t|
-    t.integer "author_id", null: false
-    t.integer "user_id", null: false
-    t.index ["author_id"], name: "author_id"
-    t.index ["user_id"], name: "user_id"
+  create_table "follows", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_follows_on_author_id"
+    t.index ["user_id"], name: "index_follows_on_user_id"
   end
 
-  create_table "likes", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "book_id", null: false
-    t.index ["book_id"], name: "book_id"
-    t.index ["user_id"], name: "user_id"
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_likes_on_book_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
-  create_table "publishers", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci", force: :cascade do |t|
-    t.string "name", null: false
+  create_table "publishers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "ratings", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "book_id", null: false
-    t.integer "rate", limit: 1, default: 0, null: false
-    t.integer "content", null: false
-    t.index ["book_id"], name: "book_id"
-    t.index ["user_id"], name: "user_id"
+  create_table "ratings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "book_id"
+    t.integer "rate"
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_ratings_on_book_id"
+    t.index ["user_id"], name: "index_ratings_on_user_id"
   end
 
-  create_table "relationships", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci", force: :cascade do |t|
-    t.integer "folower_id", null: false
-    t.integer "followed_id", null: false
+  create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_relationships_on_user_id"
   end
 
-  create_table "request_details", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci", force: :cascade do |t|
-    t.integer "book_id", null: false
-    t.integer "request_id", null: false
-    t.integer "quantity", null: false
-    t.string "status", limit: 1, null: false
-    t.index ["book_id"], name: "book_id"
-    t.index ["request_id"], name: "request_id"
+  create_table "request_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "request_id"
+    t.bigint "book_id"
+    t.string "quantity"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_request_details_on_book_id"
+    t.index ["request_id"], name: "index_request_details_on_request_id"
   end
 
-  create_table "requests", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "status", limit: 1, null: false
-    t.date "from_date", null: false
-    t.date "to_date", null: false
-    t.index ["user_id"], name: "user_id"
+  create_table "requests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "status", default: "0", null: false
+    t.datetime "from_date"
+    t.datetime "to_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_requests_on_user_id"
   end
 
-  create_table "users", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "email", null: false
-    t.string "password", null: false
-    t.string "phone", null: false
-    t.string "adress", null: false
-    t.integer "role", limit: 1, default: 0
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "phone"
+    t.string "address"
+    t.integer "role", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "books", "authors", name: "books_ibfk_1", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "books", "categories", name: "books_ibfk_2", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "books", "publishers", name: "books_ibfk_3", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "comments", "books", name: "comments_ibfk_1", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "comments", "users", name: "comments_ibfk_2", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "follows", "authors", name: "follows_ibfk_2", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "follows", "users", name: "follows_ibfk_1", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "likes", "books", name: "likes_ibfk_2", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "likes", "users", name: "likes_ibfk_1", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "ratings", "books", name: "ratings_ibfk_2", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "ratings", "users", name: "ratings_ibfk_1", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "relationships", "users", column: "id", name: "relationships_ibfk_1", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "request_details", "books", name: "request_details_ibfk_1", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "request_details", "requests", name: "request_details_ibfk_2", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "requests", "users", name: "requests_ibfk_1", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "books", "authors"
+  add_foreign_key "books", "categories"
+  add_foreign_key "books", "publishers"
+  add_foreign_key "comments", "books"
+  add_foreign_key "comments", "users"
+  add_foreign_key "follows", "authors"
+  add_foreign_key "follows", "users"
+  add_foreign_key "likes", "books"
+  add_foreign_key "likes", "users"
+  add_foreign_key "ratings", "books"
+  add_foreign_key "ratings", "users"
+  add_foreign_key "relationships", "users"
+  add_foreign_key "request_details", "books"
+  add_foreign_key "request_details", "requests"
+  add_foreign_key "requests", "users"
 end
