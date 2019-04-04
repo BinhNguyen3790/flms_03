@@ -1,4 +1,13 @@
 en:
+  helpers:
+    label:
+      user:
+        name: "Name"
+        email: "Email"
+        phone: "Phone"
+        address: "Address"
+        password: "Password"
+        password_confirmation: "Password Confirmation"
   layouts:
     application:
       title: "| Library Management"
@@ -33,3 +42,16 @@ en:
       about: "About"
       heading: "Library Management"
       paragraph: "This is the about page"
+  users:
+    new:
+      signup: "Sign up"
+      create: "Create my account"
+    create:
+      success: "Welcome to the LIBRARY MANAGEMENT!"
+    show:
+      error: "This user could not be found"
+  shared:
+    form: "The form contains %{error_list}"
+    error:
+      one: "1 error"
+      other: "%{count} errors"
