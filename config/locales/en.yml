@@ -1,2 +1,35 @@
 en:
-  hello: "Hello world"
+  layouts:
+    application:
+      title: "| Library Management"
+    header:
+      logo: "Library Management"
+      home: "Home"
+      help: "Help"
+      contact: "Contact"
+      about: "About"
+      login: "Log in"
+    footer:
+      home: "The Library Management create by BinhNguyen"
+      about: "About"
+      contact: "Contact"
+  static_pages:
+    home:
+      home: "Home"
+      heading1: "Welcome to the LIBRARY MANAGEMENT"
+      heading2: "This is the home page for the"
+      a: "LIBRARY MANAGEMENT"
+      last_heading2: "application."
+      signup: "Sign up now!"
+    help:
+      help: "Help"
+      heading: "Library Management"
+      paragraph: "This is the help page"
+    contact:
+      contact: "Contact"
+      heading: "Library Management"
+      paragraph: "This is the contact page"
+    about:
+      about: "About"
+      heading: "Library Management"
+      paragraph: "This is the about page"
