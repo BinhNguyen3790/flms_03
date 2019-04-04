@@ -8,6 +8,9 @@ en:
         address: "Address"
         password: "Password"
         password_confirmation: "Password Confirmation"
+      session:
+        email: "Email"
+        password: "Password"
   layouts:
     application:
       title: "| Library Management"
@@ -18,6 +21,11 @@ en:
       contact: "Contact"
       about: "About"
       login: "Log in"
+      user: "Users"
+      account: "Account"
+      profile: "Profile"
+      setting: "Settings"
+      logout: "Log out"
     footer:
       home: "The Library Management create by BinhNguyen"
       about: "About"
@@ -55,3 +63,13 @@ en:
     error:
       one: "1 error"
       other: "%{count} errors"
+  sessions:
+    create:
+      error: "Invalid email/password combination"
+    destroy:
+      success: "You've been logged out"
+    new:
+      login: "Log in"
+      new_user: "New user?"
+      signup: "Sign up now!"
+
