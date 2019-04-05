@@ -8,7 +8,10 @@
       <%= t(".last_heading2") %>
     </h2>
     <%= link_to t(".signup"), signup_path, class: "btn btn-lg btn-primary" %>
-</div>
-  <%= link_to image_tag("bookstack.png", alt: "Rails logo") ,
-    "http://rubyonrails.org/" %>
+  </div>
+  <h3><%= t(".book") %></h3>
+  <ul class="books">
+    <%= render @books %>
+    <%= will_paginate @books %>
+  </ul>
 </div>

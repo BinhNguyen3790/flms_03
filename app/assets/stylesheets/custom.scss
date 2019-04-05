@@ -121,3 +121,18 @@ input {
 .row{
   margin: 0px;
 }
+
+/* Users index */
+.books {
+  .card{
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    margin-top: 15px;
+    .card-body{
+      padding: 15px;
+    }
+    &:hover{
+      border: 1px solid #ffbc00;
+    }
+  }
+}
