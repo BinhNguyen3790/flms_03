@@ -12,6 +12,8 @@ en:
         email: "Email"
         password: "Password"
   layouts:
+    search:
+      search: "Search"
     application:
       title: "| Library Management"
     header:

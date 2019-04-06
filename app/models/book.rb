@@ -18,4 +18,6 @@ class Book < ApplicationRecord
     length: {maximum: Settings.book.pages}
   delegate :name, to: :author, prefix: :author
   scope :newest, ->{order created_at: :desc}
+  scope :search_book, -> search{where("name like ?",
+    "%#{search}%") if search.present?}
 end
