@@ -7,11 +7,8 @@ class Book < ApplicationRecord
   belongs_to :publisher
   belongs_to :category
   validates :name, presence: true, length: {maximum: Settings.book.name}
-  validates :author, presence: true, length: {maximum: Settings.book.author}
-  validates :category, presence: true, length: {maximum: Settings.book.category}
+  validates :image, presence: true
   validates :content, presence: true, length: {maximum: Settings.book.content}
-  validates :publisher, presence: true,
-    length: {maximum: Settings.book.publisher}
   validates :quantity, presence: true, length: {maximum: Settings.book.quantity}
   validates :year, presence: true
   validates :number_of_pages, presence: true,

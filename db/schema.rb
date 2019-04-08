@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(version: 2019_04_09_084824) do
 
   create_table "authors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.string "email"
     t.string "profile"
     t.string "avatar"
     t.datetime "created_at", null: false
@@ -26,11 +25,9 @@ ActiveRecord::Schema.define(version: 2019_04_09_084824) do
     t.bigint "category_id"
     t.bigint "publisher_id"
     t.string "name"
-    t.string "author"
-    t.string "category"
+    t.text "image"
     t.string "content"
     t.date "year"
-    t.string "publisher"
     t.integer "number_of_pages"
     t.integer "quantity"
     t.datetime "created_at", null: false
@@ -84,7 +81,6 @@ ActiveRecord::Schema.define(version: 2019_04_09_084824) do
     t.bigint "user_id"
     t.bigint "book_id"
     t.integer "rate"
-    t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_ratings_on_book_id"
@@ -124,7 +120,6 @@ ActiveRecord::Schema.define(version: 2019_04_09_084824) do
     t.string "email"
     t.string "phone"
     t.string "address"
-    t.integer "role", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
