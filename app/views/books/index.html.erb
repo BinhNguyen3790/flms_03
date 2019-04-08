@@ -1,0 +1,8 @@
+<% provide(:title, t(".books")) %>
+<div class="container">
+  <h1><%= t(".books") %></h1>
+  <ul class="books">
+    <%= render @books %>
+    <%= will_paginate @books %>
+  </ul>
+</div>

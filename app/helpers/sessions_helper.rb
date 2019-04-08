@@ -25,8 +25,7 @@ module SessionsHelper
     current_user.present?
   end
 
-   def log_out
+  def log_out
     session.delete :user_id
   end
-
 end

@@ -1,0 +1,13 @@
+<div class="col-md-3">
+  <div class="card mb-3">
+    <%= link_to image_tag("bookstack.png",
+      alt: "Rails logo", width: "100%"), book %>
+    <div class="card-body">
+      <h3 class="card-title"><%= link_to book.name, book %></h3>
+      <p class="card-text"><%= book.author_name %></p>
+      <p class="card-text">
+        <small class="text-muted"><%= t(".update") %> <%= book.year %></small>
+      </p>
+    </div>
+  </div>
+</div>

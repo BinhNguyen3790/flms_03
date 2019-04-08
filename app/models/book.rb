@@ -16,4 +16,6 @@ class Book < ApplicationRecord
   validates :year, presence: true
   validates :number_of_pages, presence: true,
     length: {maximum: Settings.book.pages}
+  delegate :name, to: :author, prefix: :author
+  scope :newest, ->{order created_at: :desc}
 end

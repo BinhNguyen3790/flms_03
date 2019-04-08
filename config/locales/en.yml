@@ -38,6 +38,7 @@ en:
       a: "LIBRARY MANAGEMENT"
       last_heading2: "application."
       signup: "Sign up now!"
+      book: "New Books"
     help:
       help: "Help"
       heading: "Library Management"
@@ -72,4 +73,8 @@ en:
       login: "Log in"
       new_user: "New user?"
       signup: "Sign up now!"
-
+  books:
+    index:
+      books: "All books"
+    book:
+      update: "Last updated"

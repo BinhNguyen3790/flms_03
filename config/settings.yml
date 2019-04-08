@@ -21,7 +21,10 @@ book:
   publisher: 255
   pages: 11
   quantity: 11
+  per_page: 15
 request_detail:
   quantity: 11
 comment:
   content: 255
+static_page:
+  per_page: 15
