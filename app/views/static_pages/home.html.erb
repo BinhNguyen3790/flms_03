@@ -9,9 +9,8 @@
     </h2>
     <%= link_to t(".signup"), signup_path, class: "btn btn-lg btn-primary" %>
   </div>
-  <h3><%= t(".book") %></h3>
+  <h3><%= link_to t(".book"), books_path %></h3>
   <ul class="books">
     <%= render @books %>
-    <%= will_paginate @books %>
   </ul>
 </div>

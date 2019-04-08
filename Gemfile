@@ -15,14 +15,14 @@ gem "mini_magick", "4.7.0"
 gem "rails-i18n"
 gem "rubocop", "~> 0.54.0", require: false
 
-gem "bootstrap-will_paginate", "1.0.0"
+gem "bootstrap-will_paginate"
 gem "faker"
 gem "mysql2"
 gem "puma", "~> 3.11"
 gem "rails", "~> 5.2.2"
 gem "sass-rails", "~> 5.0"
 gem "uglifier", ">= 1.3.0"
-gem "will_paginate", "3.1.6"
+gem "will_paginate"
 
 gem "bootsnap", ">= 1.1.0", require: false
 gem "bootstrap-sass", "3.3.7"

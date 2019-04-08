@@ -23,7 +23,6 @@ en:
       contact: "Contact"
       about: "About"
       login: "Log in"
-      book: "Books"
       account: "Account"
       profile: "Profile"
       setting: "Settings"
@@ -54,6 +53,11 @@ en:
       heading: "Library Management"
       paragraph: "This is the about page"
   users:
+    edit:
+      edit: "Edit user"
+      update: "Update your profile"
+      save: "Save changes"
+      change: "change"
     new:
       signup: "Sign up"
       create: "Create my account"
@@ -61,6 +65,17 @@ en:
       success: "Welcome to the LIBRARY MANAGEMENT!"
     show:
       error: "This user could not be found"
+    index:
+      all: "All users"
+      delete: "delete"
+      sure: "You sure?"
+      error: "You are not admin"
+      login: "Please log in."
+    destroy:
+      destroy_s: "destroy succsess"
+      destroy_f: "destroy failed"
+    update:
+      updated: "Profile updated"
   shared:
     form: "The form contains %{error_list}"
     error:
