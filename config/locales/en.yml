@@ -23,7 +23,7 @@ en:
       contact: "Contact"
       about: "About"
       login: "Log in"
-      user: "Users"
+      book: "Books"
       account: "Account"
       profile: "Profile"
       setting: "Settings"
@@ -78,5 +78,23 @@ en:
   books:
     index:
       books: "All books"
+      error: "This book could not be found"
     book:
       update: "Last updated"
+    show:
+      error: "This book could not be found"
+      detail: "Book Details"
+      name: "Name:"
+      category: "Category:"
+      author: "Author:"
+      public: "Publisher:"
+      year: "Publishing year:"
+      pages: "Number of pages:"
+      quantity: "Quantity:"
+      update: "Day update:"
+      add: "Add to Card"
+      like: "Like"
+      follow: "Follow"
+      about: "About book"
+      comment_book: "Comment book"
+      another: "Another Books"
