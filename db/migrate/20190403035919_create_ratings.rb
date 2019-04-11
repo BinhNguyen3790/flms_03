@@ -4,7 +4,6 @@ class CreateRatings < ActiveRecord::Migration[5.2]
       t.references :user, foreign_key: true
       t.references :book, foreign_key: true
       t.integer :rate
-      t.string :content
       t.timestamps
     end
   end

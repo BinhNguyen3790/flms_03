@@ -1,7 +1,85 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+User.create!(
+  name: "Nguyen Van Binh",
+  email: "example@railstutorial.org",
+  phone: "0333985817",
+  address: "184 Nguyen Dinh Tuu",
+  password: "123123",
+  password_confirmation: "123123",
+  admin: true)
+
+10.times do |n|
+  name  = Faker::Name.name
+  email = "example-#{n+1}@railstutorial.org"
+  User.create!(
+    name: name,
+    email: email,
+    phone: "0333985817",
+    address: "184 Nguyen Dinh Tuu",
+    password: "123123",
+    password_confirmation: "123123")
+end
+
+10.times do |n|
+  name  = "Author-#{n+1}"
+  profile = Faker::Lorem.sentence(10)
+  Author.create!(
+    name: name,
+    profile: profile,
+    avatar: "bookstack.png")
+end
+
+10.times do |n|
+  name  = "Publisher-#{n+1}"
+  Publisher.create!(
+    name: name)
+end
+
+name= ["Detective", "Textbooks", "Literature", "Novel", "Romance", "Skill",
+  "Business", "Marketing"]
+for i in 0..7 do
+  Category.create!(name: name[i])
+end
+
+50.times do |n|
+  name  = Faker::Name.name
+  content = Faker::Lorem.sentence(10)
+  number_of_pages = n+200
+  quantity = n+100
+  Book.create!(
+    name: name,
+    content: content,
+    year: "2019-12-09",
+    number_of_pages: number_of_pages,
+    image: "bookstack.png",
+    quantity: quantity,
+    author_id: 1,
+    publisher_id: 1,
+    category_id: 1)
+end
+
+5.times do |n|
+  content = Faker::Lorem.sentence(10)
+  Comment.create!(
+    book_id: 1,
+    user_id: 1,
+    content: content)
+end
+
+5.times do |n|
+  Rating.create!(
+    book_id: 1,
+    user_id: 1,
+    rate: 5)
+end
+
+5.times do |n|
+  Like.create!(
+    book_id: 1,
+    user_id: 1)
+end
+
+5.times do |n|
+  Follow.create!(
+    author_id: 1,
+    user_id: 1)
+end
