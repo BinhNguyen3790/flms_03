@@ -11,6 +11,10 @@ en:
       session:
         email: "Email"
         password: "Password"
+  admin:
+    books:
+      index:
+        books: "Books"
   layouts:
     search:
       search: "Search"
@@ -23,10 +27,13 @@ en:
       contact: "Contact"
       about: "About"
       login: "Log in"
+      book: "Books"
+      user: "Users"
       account: "Account"
       profile: "Profile"
       setting: "Settings"
       logout: "Log out"
+      dashboard: "Dashboard"
     footer:
       home: "The Library Management create by BinhNguyen"
       about: "About"
@@ -39,7 +46,11 @@ en:
       a: "LIBRARY MANAGEMENT"
       last_heading2: "application."
       signup: "Sign up now!"
-      book: "New Books"
+      book: "See all books >"
+      books: "Books"
+      users: "Users"
+      all_book: "see all the books"
+      all_user: "see all users"
     help:
       help: "Help"
       heading: "Library Management"
@@ -91,11 +102,16 @@ en:
       new_user: "New user?"
       signup: "Sign up now!"
   books:
+    destroy:
+      success: "destroy succsess"
+      error: "destroy failed"
     index:
       books: "All books"
       error: "This book could not be found"
     book:
       update: "Last updated"
+      delete: "delete"
+      sure: "Are you sure?"
     show:
       error: "This book could not be found"
       detail: "Book Details"
