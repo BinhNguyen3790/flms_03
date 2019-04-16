@@ -3,6 +3,9 @@ class StaticPagesController < ApplicationController
     @books =
       Book.search_book(params[:search]).newest.paginate page: params[:page],
         per_page: Settings.static_page.per_page
+    @categories =
+      Category.newest.paginate page: params[:page],
+        per_page: Settings.static_page.per_page
   end
 
   def help; end

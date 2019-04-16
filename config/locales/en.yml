@@ -47,6 +47,7 @@ en:
       last_heading2: "application."
       signup: "Sign up now!"
       book: "See all books >"
+      category: "See all category >"
       books: "Books"
       users: "Users"
       all_book: "see all the books"
@@ -129,3 +130,9 @@ en:
       about: "About book"
       comment_book: "Comment book"
       another: "Another Books"
+  categories:
+    index:
+      category: "Category"
+    show:
+      error: "This category could not be found"
+
