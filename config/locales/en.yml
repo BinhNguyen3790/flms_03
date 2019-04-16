@@ -59,6 +59,7 @@ en:
       setting: "Settings"
       logout: "Log out"
       dashboard: "Dashboard"
+      cart: "Cart"
     footer:
       home: "The Library Management create by BinhNguyen"
       about: "About"
@@ -140,6 +141,7 @@ en:
       update: "Last updated"
       delete: "delete"
       sure: "Are you sure?"
+      cart: "Add to Cart"
     show:
       error: "This book could not be found"
       detail: "Book Details"
@@ -151,7 +153,7 @@ en:
       pages: "Number of pages:"
       quantity: "Quantity:"
       update: "Day update:"
-      add: "Add to Card"
+      cart: "Add to Cart"
       like: "Like"
       follow: "Follow"
       about: "About book"
@@ -164,3 +166,24 @@ en:
     show:
       error: "This category could not be found"
       detail: "Category Details"
+  requests:
+    index:
+      request: "All request"
+      id: "ID"
+      user: "User"
+      status: "Status"
+      from: "From Date"
+      to: "To Date"
+      quantity: "Quantity"
+      category: "Category"
+      author: "Author"
+      book: "Book"
+    create:
+      success: "Create success"
+      faild: "Create fails"
+    show:
+      load_fail: "load_fail"
+      show: "show cart"
+      login: "Please login"
+    form:
+      add: "Add"

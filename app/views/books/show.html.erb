@@ -27,7 +27,11 @@
         <li><%= t(".quantity") %> <%= @book.quantity %></li>
         <li><%= t(".update") %> <%= @book.created_at %></li>
       </ul>
-      <button type="button" class="btn btn-success btn-block"><%= t(".add") %></button>
+      <%= link_to request_path(@book) do %>
+        <button class="btn btn-success btn-block" type="button">
+          <%= t(".cart") %>
+        </button>
+      <% end %>
       <button type="button" class="btn btn-danger btn-block"><%= t(".like") %></button>
       <button type="button" class="btn btn-primary btn-block"><%= t(".follow") %></button>
     </div>
