@@ -162,7 +162,7 @@ input {
 }
 
 /* Users index */
-.users, .books {
+.users, .books, .categories {
   list-style: none;
   margin: 0;
   li {
@@ -174,10 +174,14 @@ input {
 
 .carts {
   overflow: hidden;
+  list-style: none;
   li{
     img{
       width: 50px;
+      overflow: auto;
     }
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
   }
   .card{
     border: 1px solid #e0e0e0;
@@ -200,4 +204,3 @@ input {
     }
   }
 }
-

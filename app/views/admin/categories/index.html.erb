@@ -1,0 +1,14 @@
+<% provide(:title, t(".category")) %>
+<div class="container">
+  <h1><%= t(".category") %></h1>
+  <%= form_tag admin_categories_path, method: :GET do %>
+    <div class="active-cyan-4 mb-4">
+      <%= text_field_tag :search, params[:search], class: "form-control",
+        placeholder: t(".search") %>
+    </div>
+  <% end %>
+  <ul class="carts">
+    <%= render @categories %>
+  </ul>
+  <%= will_paginate %>
+</div>

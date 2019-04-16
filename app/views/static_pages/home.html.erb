@@ -17,6 +17,18 @@
       <div class="col-md-3">
         <div class="card mb-3">
           <%= link_to image_tag("bookstack.png",
+            alt: "Rails logo"), admin_categories_path %>
+          <div class="card-body">
+            <h3 class="card-title"><%= link_to t(".categories"), admin_categories_path %></h3>
+            <p class="card-text">
+              <small class="text-muted"><%= t(".all_category") %></small>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card mb-3">
+          <%= link_to image_tag("bookstack.png",
             alt: "Rails logo"), users_path %>
           <div class="card-body">
             <h3 class="card-title"><%= link_to t(".users"), users_path %></h3>
