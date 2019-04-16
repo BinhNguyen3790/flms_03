@@ -7,6 +7,7 @@
         placeholder: t(".search") %>
     </div>
   <% end %>
+  <%= link_to t(".create"), new_admin_category_path, class: "btn btn-lg btn-primary" %>
   <ul class="carts">
     <%= render @categories %>
   </ul>
