@@ -41,6 +41,10 @@
       <%= link_to t(".signup"), signup_path, class: "btn btn-lg btn-primary" %>
     <% end %>
   </div>
+  <h3><%= link_to t(".category"), categories_path %></h3>
+  <ul class="books">
+    <%= render @categories %>
+  </ul>
   <h3><%= link_to t(".book"), books_path %></h3>
   <ul class="books">
     <%= render @books %>

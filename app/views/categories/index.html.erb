@@ -1,0 +1,8 @@
+<% provide(:title, t(".category")) %>
+<div class="container">
+  <h1><%= t(".category") %></h1>
+  <ul class="carts">
+    <%= render @categories %>
+  </ul>
+  <%= will_paginate %>
+</div>

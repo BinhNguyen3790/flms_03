@@ -16,6 +16,7 @@ publisher:
   name: 255
 category:
   name: 255
+  per_page: 6
 book:
   name: 255
   author: 255
@@ -31,3 +32,4 @@ comment:
   content: 255
 static_page:
   per_page: 6
+
