@@ -15,6 +15,10 @@ en:
     books:
       index:
         books: "Books"
+    categories:
+      index:
+        category: "Categories"
+        search: "Search category"
   layouts:
     search:
       search: "Search"
@@ -50,8 +54,10 @@ en:
       category: "See all category >"
       books: "Books"
       users: "Users"
+      categories: "Categories"
       all_book: "see all the books"
       all_user: "see all users"
+      all_category: "see all users"
     help:
       help: "Help"
       heading: "Library Management"
@@ -133,6 +139,7 @@ en:
   categories:
     index:
       category: "Category"
+      error: "This category could not be found"
     show:
       error: "This category could not be found"
-
+      detail: "Category Details"

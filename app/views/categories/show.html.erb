@@ -6,13 +6,13 @@
   <div class="row">
 
     <div class="col-md-6">
-      <%= link_to image_tag("bookstack.png", alt: "Rails logo", width: "350") %>
+      <%= link_to image_tag("bookstack.png", alt: "Rails logo") %>
     </div>
 
     <div class="col-md-6">
-      <h3 class="my-3">Category Details</h3>
+      <h3 class="my-3"><%= t(".detail") %></h3>
       <ul>
-        <li><%= t(".name") %> <%= @category.name%></li>
+        <li><%= t(".name") %> <%= @category.name %></li>
       </ul>
     </div>
   </div>
