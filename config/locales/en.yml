@@ -16,9 +16,29 @@ en:
       index:
         books: "Books"
     categories:
+      category:
+        edit: "Edit"
+        sure: "Are you sure?"
+      new:
+        create: "Create Category"
+      edit:
+        update: "Update"
+        edit: "Edit Category"
+        save: "Save"
       index:
         category: "Categories"
         search: "Search category"
+        login: "Please login"
+        create: "Create category"
+      create:
+        success: "Create Success"
+      update:
+        updated: "Updated"
+      destroy:
+        success: "Delete Success"
+        error: "Delete failed"
+      show:
+        error: "Load failed"
   layouts:
     search:
       search: "Search"
@@ -33,6 +53,7 @@ en:
       login: "Log in"
       book: "Books"
       user: "Users"
+      category: "Categories"
       account: "Account"
       profile: "Profile"
       setting: "Settings"

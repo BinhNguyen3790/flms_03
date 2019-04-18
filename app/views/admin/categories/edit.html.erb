@@ -1,0 +1,12 @@
+<% provide(:title, t(".edit")) %>
+<h1><%= t(".update") %></h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for [:admin, @category] do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+
+      <%= f.submit t(".save"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
