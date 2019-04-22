@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :load_book, :load_request, only: :show
+  before_action :load_book, :load_request, :load_like, only: :show
 
   def index
     @books =
@@ -20,5 +20,9 @@ class BooksController < ApplicationController
 
   def load_request
     @request = @book.requests.new
+  end
+
+  def load_like
+    @like = @book.likes.new
   end
 end
