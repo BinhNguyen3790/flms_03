@@ -5,7 +5,22 @@
     <td><%= request.book.author_name %></td>
     <td><%= request.quantity %></td>
     <td><span class="label label-success"><%= request.status %></span></td>
-    <td><%= request.from_date %></td>
-    <td><%= request.to_date %></td>
+    <td><%= request.from_date.strftime("%F") %></td>
+    <td><%= request.to_date.strftime("%F") %></td>
+    <td>
+      <%= link_to edit_request_path(request) do %>
+        <button class="btn btn-primary btn-block" type="button">
+          <%= t(".edit") %>
+        </button>
+      <% end %>
+    </td>
+    <td>
+      <%= link_to request_path(request), method: :delete,
+            data: {confirm: t(".sure")} do %>
+              <button class="btn btn-danger btn-block" type="button">
+                <%= t(".delete") %>
+              </button>
+      <% end %>
+    </td>
   </tr>
 <% end %>

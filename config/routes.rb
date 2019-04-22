@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :books
   resources :categories
   resources :request_details
-  resources :requests, only: %i(create show index)
+  resources :requests
   namespace :admin do
     resources :books
     resources :categories

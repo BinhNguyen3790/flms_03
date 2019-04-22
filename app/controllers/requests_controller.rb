@@ -1,6 +1,7 @@
 class RequestsController < ApplicationController
   before_action :logged_in_user, only: %i(show index)
   before_action :load_book, only: :show
+  before_action :load_request, only: %i(destroy edit update)
 
   def show
     @request = @book.requests.build
@@ -16,12 +17,32 @@ class RequestsController < ApplicationController
     @request = Request.new request_params
     if @request.save
       flash[:success] = t ".success"
-      redirect_to books_path @book
+      redirect_to requests_path
     else
       flash[:danger] = t ".fail"
       redirect_to root_path
     end
   end
+
+  def update
+    if @request.update_attributes request_params
+      flash[:success] = t ".updated"
+      redirect_to requests_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    if @request.destroy
+      flash[:success] = t ".success"
+    else
+      flash[:danger] = t ".error"
+    end
+    redirect_to requests_path
+  end
+
+  def edit; end
 
   private
 
@@ -35,5 +56,12 @@ class RequestsController < ApplicationController
     return if @book
     flash[:danger] = t ".load_fail"
     redirect_to books_path
+  end
+
+  def load_request
+    @request = Request.find_by id: params[:id]
+    return if @request
+    flash[:danger] = t ".load_fail"
+    redirect_to requests_path
   end
 end
