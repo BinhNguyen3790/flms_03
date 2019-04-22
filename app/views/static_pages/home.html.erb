@@ -38,6 +38,18 @@
           </div>
         </div>
       </div>
+      <div class="col-md-3">
+        <div class="card mb-3">
+          <%= link_to image_tag("bookstack.png",
+            alt: "Rails logo"), admin_requests_path %>
+          <div class="card-body">
+            <h3 class="card-title"><%= link_to t(".request"), admin_requests_path %></h3>
+            <p class="card-text">
+              <small class="text-muted"><%= t(".all_request") %></small>
+            </p>
+          </div>
+        </div>
+      </div>
     </ul>
   </div>
 <% else %>

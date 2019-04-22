@@ -11,4 +11,5 @@ class Request < ApplicationRecord
   scope :search_request,
     ->(search){where "name like ?", "%#{search}%" if search.present?}
   delegate :name, to: :book, prefix: :book
+  delegate :name, to: :user, prefix: :user
 end

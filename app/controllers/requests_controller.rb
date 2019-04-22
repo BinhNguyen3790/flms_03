@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-  before_action :logged_in_user, only: %i(show index)
+  before_action :logged_in_user, only: %i(show index create)
   before_action :load_book, only: :show
   before_action :load_request, only: %i(destroy edit update)
 
@@ -15,6 +15,7 @@ class RequestsController < ApplicationController
 
   def create
     @request = Request.new request_params
+    @request = current_user.requests.build request_params
     if @request.save
       flash[:success] = t ".success"
       redirect_to requests_path
