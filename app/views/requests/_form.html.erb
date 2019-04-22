@@ -1,0 +1,25 @@
+<%= form_for(@request) do |f| %>
+
+  <%= f.hidden_field :user_id, value: current_user.id %>
+
+  <%= f.hidden_field :book_id, value: @request.book.id %>
+
+  <div class="form-group">
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :from_date %>
+    <%= f.date_field :from_date, class: "form-control", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :to_date %>
+    <%= f.date_field :to_date, class: "form-control", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit t(".add"), class: "btn btn-primary" %>
+  </div>
+<% end %>

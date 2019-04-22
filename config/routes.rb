@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   resources :users
   resources :books
   resources :categories
+  resources :request_details
+  resources :requests, only: %i(create show index)
   namespace :admin do
     resources :books
     resources :categories

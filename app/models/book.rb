@@ -3,6 +3,7 @@ class Book < ApplicationRecord
   has_many :ratings, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :request_details, dependent: :destroy
+  has_many :requests, dependent: :destroy
   belongs_to :author
   belongs_to :publisher
   belongs_to :category

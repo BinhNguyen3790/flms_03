@@ -1,0 +1,11 @@
+<% if current_user.id == request.user_id %>
+  <tr>
+    <td><%= request.book_name %></td>
+    <td><%= request.book.category_name %></td>
+    <td><%= request.book.author_name %></td>
+    <td><%= request.quantity %></td>
+    <td><span class="label label-success"><%= request.status %></span></td>
+    <td><%= request.from_date %></td>
+    <td><%= request.to_date %></td>
+  </tr>
+<% end %>

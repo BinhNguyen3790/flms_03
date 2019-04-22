@@ -97,8 +97,8 @@ ActiveRecord::Schema.define(version: 2019_04_09_084824) do
   create_table "request_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "request_id"
     t.bigint "book_id"
-    t.string "quantity"
-    t.string "status"
+    t.integer "quantity"
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_request_details_on_book_id"
@@ -107,11 +107,14 @@ ActiveRecord::Schema.define(version: 2019_04_09_084824) do
 
   create_table "requests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "status", default: "0", null: false
+    t.bigint "book_id"
+    t.integer "status", default: 0, null: false
     t.datetime "from_date"
     t.datetime "to_date"
+    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_requests_on_book_id"
     t.index ["user_id"], name: "index_requests_on_user_id"
   end
 
@@ -140,5 +143,6 @@ ActiveRecord::Schema.define(version: 2019_04_09_084824) do
   add_foreign_key "relationships", "users"
   add_foreign_key "request_details", "books"
   add_foreign_key "request_details", "requests"
+  add_foreign_key "requests", "books"
   add_foreign_key "requests", "users"
 end
