@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :request_details
   resources :requests
   resources :likes, only: %i(create destroy)
+  resources :comments
   namespace :admin do
     resources :books
     resources :requests

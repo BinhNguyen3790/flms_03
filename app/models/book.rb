@@ -20,4 +20,7 @@ class Book < ApplicationRecord
   scope :newest, ->{order created_at: :desc}
   scope :search_book,
     ->(search){where("name like ?", "%#{search}%") if search.present?}
+  def comments_newest
+    comments.newest
+  end
 end

@@ -154,11 +154,16 @@ en:
       books: "All books"
       error: "This book could not be found"
     book:
+      unlike: "Unlike"
+      like: "Like"
       update: "Last updated"
       delete: "delete"
       sure: "Are you sure?"
       cart: "Add to Cart"
     show:
+      unlike: "Unlike"
+      like: "Like"
+      comment_book: "Comments"
       sure: "Are you sure?"
       error: "This book could not be found"
       detail: "Book Details"
@@ -221,3 +226,19 @@ en:
       success: "You like this book"
     like:
       like: "Like"
+  comments:
+    update:
+      updated: "Update success"
+    edit:
+      show: "Edit"
+      add: "Add"
+    comment:
+      sure: "Are you sure?"
+      delete: "Delete"
+      edit: "Edit"
+    create:
+      success: "Comment success"
+      danger: "Comment faild"
+    destroy:
+      success: "Delete success"
+      danger: "Delete faild"

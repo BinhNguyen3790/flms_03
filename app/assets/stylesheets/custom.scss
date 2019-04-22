@@ -208,3 +208,16 @@ input {
     }
   }
 }
+
+.comment{
+  margin-bottom: 1em;
+  font-size: 14px;
+  border-bottom: 1px solid gray;
+  .name{
+    color: blue;
+    font-weight: bold;
+  }
+  .date{
+    font-size: 12px;
+  }
+}

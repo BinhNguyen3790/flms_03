@@ -55,6 +55,10 @@ module SessionsHelper
     current_user.likes.find_by(book_id: book.id).present?
   end
 
+  def comment? comment
+    current_user.comments.find_by(id: comment.id).present?
+  end
+
   def logged_in_user
     return if logged_in?
     store_location

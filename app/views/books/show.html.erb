@@ -5,7 +5,7 @@
   <!-- Portfolio Item Heading -->
   <h1 class="my-4">
     <%= @book.name %><br/>
-    <small><%= @book.author_name%></small>
+    <small><%= @book.author_name %></small>
   </h1>
 
   <!-- Portfolio Item Row -->
@@ -61,7 +61,8 @@
     <div class="col-md-12">
       <h3 class="my-3"><%= t(".comment_book") %></h3>
       <div class="form-group">
-        <textarea class="form-control" rows="5" id="comment"></textarea>
+        <div class="col-md-12"><%= render "comments/form" %></div>
+        <div class="col-md-12"><%= render @book.comments_newest %></div>
       </div>
     </div>
   </div>
