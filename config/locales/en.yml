@@ -167,8 +167,18 @@ en:
       error: "This category could not be found"
       detail: "Category Details"
   requests:
+    update:
+      updated: "Updated"
+    edit:
+      edit: "Edit"
+    destroy:
+      success: "Destroy Success"
+    request:
+      delete: "Delete"
+      edit: "Edit"
+      sure: "Are you sure?"
     index:
-      request: "All request"
+      request: "All Order"
       id: "ID"
       user: "User"
       status: "Status"
