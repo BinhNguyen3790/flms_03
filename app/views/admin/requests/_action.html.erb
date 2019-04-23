@@ -1,0 +1,4 @@
+<%= form_for [:admin, request] do |f| %>
+  <%= f.select :status, request_status %>
+  <%= f.submit t(".save"), class: "btn btn-success" %>
+<% end %>

@@ -1,0 +1,8 @@
+<tr>
+  <td><%= link_to request.book_name, admin_book_path(request.book) %></td>
+  <td><%= request.user_name %></td>
+  <td><%= request.quantity %></td>
+  <td><%= l request.from_date, format: :long %></td>
+  <td><%= l request.to_date, format: :long %></td>
+  <td><%= render partial: "action", object: request, as: :request %></td>
+</tr>

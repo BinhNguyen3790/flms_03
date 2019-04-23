@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :requests
   namespace :admin do
     resources :books
+    resources :requests
     resources :categories
   end
 end

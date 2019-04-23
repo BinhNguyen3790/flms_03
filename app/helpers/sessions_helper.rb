@@ -38,6 +38,10 @@ module SessionsHelper
     session.delete(:forwarding_url)
   end
 
+  def request_status
+    Request.statuses.keys.map {|status| [t("request_status.#{status}"), status]}
+  end
+
   # Stores the URL trying to be accessed.
   def store_location
     session[:forwarding_url] = request.original_url if request.get?

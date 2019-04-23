@@ -1,0 +1,22 @@
+<% provide(:title, t(".request")) %>
+<div class="container">
+  <h1><%= t(".request") %></h1>
+  <ul class="books">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th><%= t ".book" %></th>
+          <th><%= t ".user" %></th>
+          <th><%= t ".quantity" %></th>
+          <th><%= t ".from_date" %></th>
+          <th><%= t ".to_date" %></th>
+          <th class="center"><%= t ".action" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @requests %>
+      </tbody>
+    </table>
+  </ul>
+  <%= will_paginate %>
+</div>
