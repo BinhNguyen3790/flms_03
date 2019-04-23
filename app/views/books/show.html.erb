@@ -32,8 +32,22 @@
           <%= t(".cart") %>
         </button>
       <% end %>
-      <button type="button" class="btn btn-danger btn-block"><%= t(".like") %></button>
-      <button type="button" class="btn btn-primary btn-block"><%= t(".follow") %></button>
+      <% if logged_in? %>
+        <% if like? @book %>
+          <%= link_to like_path(book_id: @book.id), method: :delete,
+            data: {confirm: t(".sure")} do %>
+            <button type="button" class="btn btn-danger btn-block">
+              <%= t(".unlike") %>
+            </button>
+          <% end %>
+        <% else %>
+          <%= render "likes/like" %>
+        <% end %>
+      <% end %>
+      <button type="button" class="btn btn-primary btn-block">
+        <%= t(".follow") %>
+      </button>
+      <i><b><%= @book.likes.count %></b> <%= t ".likes" %></i>
     </div>
 
     <div class="col-md-4">

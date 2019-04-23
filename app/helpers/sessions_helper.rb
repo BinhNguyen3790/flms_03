@@ -39,7 +39,7 @@ module SessionsHelper
   end
 
   def request_status
-    Request.statuses.keys.map {|status| [t("request_status.#{status}"), status]}
+    Request.statuses.keys.map{|status| [t("request_status.#{status}"), status]}
   end
 
   # Stores the URL trying to be accessed.
@@ -49,6 +49,10 @@ module SessionsHelper
 
   def requests_newest
     current_user.requests.newest
+  end
+
+  def like? book
+    current_user.likes.find_by(book_id: book.id).present?
   end
 
   def logged_in_user

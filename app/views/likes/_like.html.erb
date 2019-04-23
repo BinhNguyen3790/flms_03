@@ -1,0 +1,4 @@
+<%= form_for @like do |f| %>
+  <%= f.hidden_field :book_id, value: @book.id %>
+  <%= f.submit t(".like"), class: "btn btn-danger" %>
+<% end %>

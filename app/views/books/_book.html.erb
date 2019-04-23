@@ -5,7 +5,22 @@
     <div class="card-body">
       <h5 class="card-title"><%= link_to book.name, book %></h5>
       <p class="card-text"><%= book.author_name %></p>
-      <%= link_to t(".cart"), request_path(book) %>
+      <p class="card-text">
+        <%= link_to request_path(book) do %>
+          <button type="button" class="btn btn-success btn-block">
+            <%= t(".cart") %>
+          </button>
+        <% end %>
+      </p>
+      <p>
+        <% if logged_in? %>
+          <%= link_to book_path(book) do %>
+            <button type="button" class="btn btn-danger btn-block">
+              <%= like?(book) ? t(".unlike") : t(".like") %>
+            </button>
+          <% end %>
+        <% end %>
+      </p>
       <p class="card-text">
         <small class="text-muted"><%= t(".update") %> <%= book.year %></small>
       </p>

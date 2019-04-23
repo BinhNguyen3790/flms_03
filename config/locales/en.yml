@@ -159,6 +159,7 @@ en:
       sure: "Are you sure?"
       cart: "Add to Cart"
     show:
+      sure: "Are you sure?"
       error: "This book could not be found"
       detail: "Book Details"
       name: "Name:"
@@ -213,3 +214,10 @@ en:
       login: "Please login"
     form:
       add: "Add"
+  likes:
+    destroy:
+      success: "You unlike this book"
+    create:
+      success: "You like this book"
+    like:
+      like: "Like"
