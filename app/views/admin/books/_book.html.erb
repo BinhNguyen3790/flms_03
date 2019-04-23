@@ -1,7 +1,8 @@
 <li>
   <%= link_to image_tag("bookstack.png",
     alt: "Rails logo"), book %>
-  <%= link_to book.name, book %>
-  | <%= link_to t(".delete"), book, method: :delete,
+  <%= link_to book.name, admin_book_path(book) %>
+  | <%= link_to t(".delete"), admin_book_path(book), method: :delete,
       data: { confirm: t(".sure") } %>
+  | <%= link_to t(".edit"), edit_admin_book_path(book) %>
 </li>

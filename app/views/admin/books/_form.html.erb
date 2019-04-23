@@ -1,0 +1,22 @@
+<%= form_for [:admin, @book] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control" %>
+  <%= f.label :author %>
+  <%= f.collection_select :author_id, get_authors(:name), :id, :name %>
+  <%= f.label :categories %>
+  <%= f.collection_select :category_id, get_categories(:name), :id, :name %>
+  <%= f.label :publisher %>
+  <%= f.collection_select :publisher_id, get_publishers(:name), :id, :name %>
+  <%= f.label :content %>
+  <%= f.text_field :content, class: "form-control" %>
+  <%= f.label :image %>
+  <%= f.text_field :image, class: "form-control" , value: "bookstack.png" %>
+  <%= f.label :year %>
+  <%= f.date_field :year, class: "form-control" %>
+  <%= f.label :pages %>
+  <%= f.number_field :number_of_pages, class: "form-control" %>
+  <%= f.label :quantity %>
+  <%= f.number_field :quantity, class: "form-control" %>
+
+  <%= f.submit t(".save"), class: "btn btn-primary" %>
+<% end %>
