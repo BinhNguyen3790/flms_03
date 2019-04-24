@@ -1,22 +1,28 @@
 <% provide(:title, t(".request")) %>
-<div class="container">
-  <h1><%= t(".request") %></h1>
-  <ul class="books">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th><%= t ".book" %></th>
-          <th><%= t ".user" %></th>
-          <th><%= t ".quantity" %></th>
-          <th><%= t ".from_date" %></th>
-          <th><%= t ".to_date" %></th>
-          <th class="center"><%= t ".action" %></th>
-        </tr>
-      </thead>
-      <tbody>
-        <%= render @requests %>
-      </tbody>
-    </table>
-  </ul>
-  <%= will_paginate %>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <i class="fa fa-table fa-fw"></i> <%= t(".request_table") %>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-hover" id="example">
+          <thead>
+            <tr>
+              <th><%= t ".book" %></th>
+              <th><%= t ".user" %></th>
+              <th><%= t ".quantity" %></th>
+              <th><%= t ".from_date" %></th>
+              <th><%= t ".to_date" %></th>
+              <th class="center"><%= t ".action" %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @requests %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
+<div class="row"><div class="text-center"><%= will_paginate %></div></div>

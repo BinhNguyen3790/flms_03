@@ -1,8 +1,30 @@
 <% provide(:title, t(".all")) %>
-<div class="container">
-  <h1><%= t(".all") %></h1>
-  <ul class="users">
-    <%= render @users %>
-  </ul>
-  <%= will_paginate %>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <i class="fa fa-table fa-fw"></i> <%= t(".user_table") %>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-hover" id="example">
+          <thead>
+            <tr>
+              <th><%= t ".image" %></th>
+              <th><%= t ".name" %></th>
+              <th><%= t ".email" %></th>
+              <th><%= t ".phone" %></th>
+              <th><%= t ".address" %></th>
+              <th><%= t ".admin" %></th>
+              <th><%= t ".action" %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @users %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
+<div class="row"><div class="text-center"><%= will_paginate %></div></div>
+

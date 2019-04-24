@@ -8,6 +8,7 @@ class Request < ApplicationRecord
   validates :quantity, presence: true,
     length: {maximum: Settings.request_detail.quantity}
   scope :newest, ->{order created_at: :desc}
+  scope :alphabet, ->{order name: :asc}
   scope :search_request,
     ->(search){where "name like ?", "%#{search}%" if search.present?}
   delegate :name, to: :book, prefix: :book

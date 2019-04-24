@@ -15,12 +15,33 @@ en:
         email: "Email"
         password: "Password"
   admin:
+    static_pages:
+      index:
+        about: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        comment: "User Comments"
+        view: "View All Alerts"
+        server: "Server Not Responding"
+        hour: "3:33 PM"
+        time: "14 minutes ago"
+        panel: "Notifications Panel"
+        details: "View Details"
+        authorized: "Please login with admin"
+        admin: "Dashboard"
+        request: "Requests"
+        all_request: "All requests"
+        user: "Users"
+        all_user: "All Users"
+        category: "Categories"
+        all_category: "All Categories"
+        books: "Books"
+        all_book: "All Books"
     requests:
       update:
         success: "Saved"
         load_fail: "Load fails"
       index:
         request: "Request"
+        request_table: "Requests Table"
         book: "Book"
         user: "User"
         quantity: "Quantity"
@@ -30,6 +51,8 @@ en:
       action:
         save: "Save"
     books:
+      form:
+        save: "Save"
       update:
         success: "Update success"
       edit:
@@ -62,6 +85,7 @@ en:
       index:
         create: "Create"
         books: "Books"
+        book_table: "Books Table"
         search: "Search Book"
     categories:
       category:
@@ -93,7 +117,15 @@ en:
     application:
       title: "| Library Management"
     header:
-      logo: "Library Management"
+      change: "Change Account"
+      menu: "Navigation Menu"
+      all_alert: "See All Alerts"
+      minute: "4 minutes ago"
+      new_comment: "New Comment"
+      all_tasks: "See All Tasks"
+      complete: "40% Complete"
+      task: "Task 1"
+      logo: "Sun*"
       home: "Home"
       help: "Help"
       contact: "Contact"
@@ -143,6 +175,9 @@ en:
       heading: "Library Management"
       paragraph: "This is the about page"
   users:
+    user:
+      delete: "Delete"
+      sure: "Are you sure?"
     edit:
       edit: "Edit user"
       update: "Update your profile"
@@ -156,6 +191,14 @@ en:
     show:
       error: "This user could not be found"
     index:
+      image: "Image"
+      name: "Name"
+      email: "Email"
+      phone: "Phone"
+      address: "Address"
+      admin: "Admin"
+      action: "Action"
+      user_table: "Users Table"
       all: "All users"
       delete: "delete"
       sure: "You sure?"

@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :likes, only: %i(create destroy)
   resources :comments
   namespace :admin do
+    root "static_pages#index"
     resources :books
     resources :requests
     resources :categories
