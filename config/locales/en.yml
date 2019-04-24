@@ -1,4 +1,7 @@
 en:
+  time:
+    formats:
+      date_month_year: "%d-%m-%y"
   helpers:
     label:
       user:
@@ -27,8 +30,39 @@ en:
       action:
         save: "Save"
     books:
+      update:
+        success: "Update success"
+      edit:
+        edit: "Edit"
+        update: "Update"
+        save: "Save"
+      destroy:
+        success: "Delete Book Success"
+        danger: "Delete Book faild"
+      create:
+        success: "Create Book Success"
+        danger: "Create Book faild"
+      show:
+        name: "Name"
+        category: "Category"
+        author: "Author"
+        public: "Public"
+        year: "Year"
+        pages: "Pages"
+        quantity: "Quantity"
+        update: "Update"
+        about: "About"
+      new:
+        create: "Create Book"
+        save: "Save"
+      book:
+        delete: "Delete"
+        sure: "Are you sure?"
+        edit: "Edit"
       index:
+        create: "Create"
         books: "Books"
+        search: "Search Book"
     categories:
       category:
         edit: "Edit"

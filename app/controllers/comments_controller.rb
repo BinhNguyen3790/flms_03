@@ -15,9 +15,12 @@ class CommentsController < ApplicationController
   def edit; end
 
   def update
-    @comment.update_attributes comments_params
-    flash[:success] = t ".updated"
-    redirect_to @comment.book
+    if @comment.update_attributes comments_params
+      flash[:success] = t ".updated"
+      redirect_to @comment.book
+    else
+      render :edit
+    end
   end
 
   def destroy

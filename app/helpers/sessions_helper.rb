@@ -65,4 +65,16 @@ module SessionsHelper
     flash[:danger] = t ".login"
     redirect_to login_url
   end
+
+  def get_authors name
+    Author.order(name)
+  end
+
+  def get_categories name
+    Category.order(name)
+  end
+
+  def get_publishers name
+    Publisher.order(name)
+  end
 end
