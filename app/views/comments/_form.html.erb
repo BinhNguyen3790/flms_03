@@ -1,0 +1,7 @@
+<%= form_for @comment do |f| %>
+  <%= f.hidden_field :book_id, value: @book.id %>
+
+  <div class="form-group">
+    <%= f.text_field :content, class: "form-control" %>
+  </div>
+<% end %>

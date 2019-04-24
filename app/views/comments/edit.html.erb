@@ -1,0 +1,17 @@
+<% provide :title, t(".show") %>
+<div class="margin-top">
+  <div class="row">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <%= form_for @comment do |f| %>
+          <div class="form-group">
+            <%= f.text_field :content, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.submit t(".add"), class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

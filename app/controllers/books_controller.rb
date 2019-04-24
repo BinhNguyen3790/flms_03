@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
-  before_action :load_book, :load_request, :load_like, only: :show
+  before_action :load_book, :build_request, :build_like, :build_comment,
+    only: :show
 
   def index
     @books =
@@ -18,11 +19,15 @@ class BooksController < ApplicationController
 
   private
 
-  def load_request
+  def build_request
     @request = @book.requests.new
   end
 
-  def load_like
+  def build_like
     @like = @book.likes.new
+  end
+
+  def build_comment
+    @comment = @book.comments.new
   end
 end

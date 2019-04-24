@@ -1,0 +1,18 @@
+<div class="row comment">
+  <div class= "col-md-12">
+    <span class="name"><%= comment.user_name %></span>
+    <span><%= comment.content %></span>
+  </div>
+  <div class="col-md-11 date"><%= time_ago_in_words(comment.created_at) %></div>
+  <div class="col-md-1 date">
+    <% if logged_in? && comment?(comment) %>
+      <%= link_to comment_path(comment_id: comment.id), method: :delete,
+        data: {confirm: t(".sure")} do %>
+        <%= t ".delete" %>
+      <% end %>
+      <%= link_to edit_comment_path(comment_id: comment.id) do %>
+        <%= t ".edit" %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
