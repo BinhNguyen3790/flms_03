@@ -1,31 +1,29 @@
 <%= provide(:title, @book.name) %>
-<div class="container">
-  <h1 class="my-4">
-    <%= @book.name %><br/>
-    <small><%= @book.author_name %></small>
-  </h1>
-  <div class="row">
-    <div class="col-md-4">
-      <%= link_to image_tag("bookstack.png", alt: "Rails logo", width: "350") %>
-    </div>
-    <div class="col-md-4">
-      <h3 class="my-3">Book Details</h3>
-      <ul>
-        <li><%= t(".name") %>: <%= @book.name %></li>
-        <li><%= t(".category") %>: <%= @book.category_name  %></li>
-        <li><%= t(".author") %>: <%= @book.author_name %></li>
-        <li><%= t(".public") %>: <%= @book.publisher_name %></li>
-        <li><%= t(".year") %>: <%= @book.year %></li>
-        <li><%= t(".pages") %>: <%= @book.number_of_pages %></li>
-        <li><%= t(".quantity") %>: <%= @book.quantity %></li>
-        <li><%= t(".update") %>: <%= l @book.created_at,
-          format: :date_month_year %>
-        </li>
-      </ul>
-    </div>
-    <div class="col-md-4">
-      <h3 class="my-3"><%= t(".about") %></h3>
-      <p><%= @book.content %></p>
-    </div>
+<h1 class="my-4">
+  <%= @book.name %><br/>
+  <small><%= @book.author_name %></small>
+</h1>
+<div class="row">
+  <div class="col-md-4">
+    <%= link_to image_tag("bookstack.png", alt: "Rails logo", width: "350") %>
+  </div>
+  <div class="col-md-4">
+    <h3 class="my-3">Book Details</h3>
+    <ul>
+      <li><%= t(".name") %>: <%= @book.name %></li>
+      <li><%= t(".category") %>: <%= @book.category_name  %></li>
+      <li><%= t(".author") %>: <%= @book.author_name %></li>
+      <li><%= t(".public") %>: <%= @book.publisher_name %></li>
+      <li><%= t(".year") %>: <%= @book.year %></li>
+      <li><%= t(".pages") %>: <%= @book.number_of_pages %></li>
+      <li><%= t(".quantity") %>: <%= @book.quantity %></li>
+      <li><%= t(".update") %>: <%= l @book.created_at,
+        format: :date_month_year %>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h3 class="my-3"><%= t(".about") %></h3>
+    <p><%= @book.content %></p>
   </div>
 </div>

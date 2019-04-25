@@ -1,47 +1,250 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <%= link_to t(".logo"), root_path, id: "logo" %>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to t(".home"), home_path %></li>
-        <li><%= link_to t(".help"), help_path %></li>
-        <li><%= link_to t(".contact"), contact_path %></li>
-        <li><%= link_to t(".about"), about_path %></li>
-        <% if logged_in? && current_user.admin? %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <%= t(".dashboard") %> <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to t(".cart"), admin_requests_path %></li>
-              <li><%= link_to t(".user"), users_path %></li>
-              <li><%= link_to t(".book"), admin_books_path %></li>
-              <li><%= link_to t(".category"), admin_categories_path %></li>
-            </ul>
+<% if logged_in? && current_user.admin? %>
+  <div class="">
+    <header class="navbar-fixed-top">
+      <div class="row">
+        <div class="container-fluid">
+          <div class="pull-left">
+            <div class="pull-left logo text-center">
+              <span>
+                <%= link_to t(".logo"), admin_root_path %>
+              </span>
+            </div>
+          </div>
+          <div class="pull-right">
+            <div class="marr20">
+              <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown task">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-tasks fa-fw"></i>
+                  <i class="fa fa-caret-down"></i></a>
+                  <ul class="dropdown-menu dropdown-tasks">
+                    <li>
+                      <a href="#">
+                        <div>
+                          <p><strong><%= t(".task") %></strong><span class="pull-right text-muted"><%= t(".complete") %></span></p>
+                          <div class="progress progress-striped active">
+                            <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" class=
+                            "progress-bar progress-bar-success" role="progressbar" style="width: 40%">
+                              <span class="sr-only"><%= t(".complete") %></span>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                      <a class="text-center" href="#"><strong><%= t(".all_tasks") %></strong> <i class=
+                      "fa fa-angle-right"></i></a>
+                    </li>
+                  </ul><!-- /.dropdown-tasks -->
+                </li><!-- /.dropdown -->
+                <li class="dropdown bell">
+                  <a aria-expanded="false" class="dropdown-toggle" data-toggle="dropdown" href="#"><i class=
+                  "fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i></a>
+                  <ul class="dropdown-menu dropdown-alerts">
+                    <li>
+                      <a href="#">
+                      <div>
+                        <i class="fa fa-comment fa-fw"></i> <%= t('.new_comment') %><span class="pull-right text-muted small"><%= t(".minute") %></span>
+                      </div></a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                      <a class="text-center" href="#"><strong><%= t(".all_alert") %></strong> <i class=
+                      "fa fa-angle-right"></i></a>
+                    </li>
+                  </ul><!-- /.dropdown-alerts -->
+                </li><!-- /.dropdown -->
+                <li class="dropdown user">
+                  <a aria-expanded="false" class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                  </a>
+                  <ul class="dropdown-menu dropdown-user">
+                    <li>
+                      <%= link_to requests_path do %>
+                        <i class="fa fa-user fa-fw"></i>
+                        <%=  t(".cart") %>
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to current_user do %>
+                        <i class="fa fa-user fa-fw"></i>
+                        <%=  t(".profile") %>
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to edit_user_path(current_user) do %>
+                        <i class="fa fa-gear fa-fw"></i>
+                        <%=  t(".setting") %>
+                      <% end %>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                      <%= link_to logout_path, method: :delete do %>
+                        <i class="fa fa-sign-out fa-fw"></i>
+                        <%= t(".logout") %>
+                      <% end %>
+                    </li>
+                  </ul><!-- /.dropdown-user -->
+                </li><!-- /.dropdown -->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="wrap">
+    <div class="side-menu">
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+          <div class="brand-wrapper">
+            <div class="brand-name-wrapper">
+              <a class="navbar-brand" href="#"><%= t(".menu") %></a>
+            </div><a class="btn btn-default" data-toggle="collapse" href="#search" id="search-trigger"><span class=
+            "glyphicon glyphicon-search"></span></a>
+            <div class="panel-collapse collapse" id="search">
+              <div class="panel-body">
+                <form class="navbar-form" role="search">
+                  <div class="form-group">
+                    <input class="form-control" placeholder="Search" type="text">
+                  </div><button class="btn btn-default" type="submit"><span class=
+                  "glyphicon glyphicon-ok"></span></button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div><!-- Main Menu -->
+        <div class="side-menu-container">
+          <ul class="nav navbar-nav">
+            <li>
+              <%= link_to admin_root_path do %>
+              <span class="glyphicon glyphicon-list-alt"></span>
+                <%= t(".dashboard") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to admin_requests_path do %>
+              <span class="glyphicon glyphicon-list-alt"></span>
+                <%= t(".cart") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to users_path do %>
+              <span class="glyphicon glyphicon-envelope"></span>
+                <%= t(".user") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to admin_books_path do %>
+              <span class="glyphicon glyphicon-calendar"></span>
+                <%= t(".book") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to admin_categories_path do %>
+              <span class="glyphicon glyphicon-film"></span>
+                <%= t(".category") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to current_user do %>
+              <span class="glyphicon glyphicon-envelope"></span>
+                <%= t(".profile") %>
+              <% end %>
+            </li><!-- Dropdown-->
+            <li class="panel panel-default" id="dropdown">
+              <a data-toggle="collapse" href="#dropdown-lvl1"><span class="glyphicon glyphicon-user"></span><%= current_user.name %><span class="caret"></span></a> <!-- Dropdown level 1 -->
+              <div class="panel-collapse collapse" id="dropdown-lvl1">
+                <div class="panel-body">
+                  <ul class="nav navbar-nav">
+                    <li>
+                      <%= link_to requests_path do %>
+                        <i class="fa fa-user fa-fw"></i>
+                        <%=  t(".cart") %>
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to current_user do %>
+                        <i class="fa fa-user fa-fw"></i>
+                        <%=  t(".profile") %>
+                      <% end %>
+                    </li>
+                    <li class="panel panel-default" id="dropdown">
+                      <a data-toggle="collapse" href="#dropdown-lvl2"><span class="glyphicon glyphicon-off"></span><%=  t(".setting") %> <span class="caret"></span></a>
+                      <div class="panel-collapse collapse" id="dropdown-lvl2">
+                        <div class="panel-body">
+                          <ul class="nav navbar-nav">
+                            <li>
+                              <%= link_to edit_user_path(current_user) do %>
+                                <i class="fa fa-gear fa-fw"></i>
+                                <%=  t(".change") %>
+                              <% end %>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                      <%= link_to logout_path, method: :delete do %>
+                        <i class="fa fa-sign-out fa-fw"></i>
+                        <%= t(".logout") %>
+                      <% end %>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </nav>
+    </div><!-- Main Content -->
+    <div class="container-fluid">
+      <div class="side-body">
+      <div class="page-title-box">
+        <h3 class="page-title pull-left"><%= t(".dashboard") %></h3>
+        <ol class="breadcrumb pull-right">
+          <li>
+            <%= link_to admin_root_path, class: "active" do %>
+              <%= t(".home") %>
+            <% end %>
           </li>
-        <% end %>
-        <% if logged_in? %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <%= t(".account") %> <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to t(".cart"), requests_path %></li>
-              <li><%= link_to t(".profile"), current_user %></li>
-              <li><%= link_to t(".setting"), edit_user_path(current_user) %></li>
-              <li class="divider"></li>
-              <li>
-                <%= link_to t(".logout"), logout_path, method: :delete %>
-              </li>
-            </ul>
+          <li class="active"><%= t(".dashboard") %></li>
+        </ol>
+        <div class="clearfix"></div>
+      </div>
+<% else %>
+  <header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+      <%= link_to t(".logo"), root_path, id: "logo" %>
+      <nav>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to t(".home"), home_path %></li>
+          <li><%= link_to t(".help"), help_path %></li>
+          <li><%= link_to t(".contact"), contact_path %></li>
+          <li><%= link_to t(".about"), about_path %></li>
+          <% if logged_in? %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <%= t(".account") %> <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to t(".cart"), requests_path %></li>
+                <li><%= link_to t(".profile"), current_user %></li>
+                <li><%= link_to t(".setting"), edit_user_path(current_user) %></li>
+                <li class="divider"></li>
+                <li>
+                  <%= link_to t(".logout"), logout_path, method: :delete %>
+                </li>
+              </ul>
+            </li>
+          <% else %>
+            <li><%= link_to t(".login"), login_path %></li>
+          <% end %>
+          <li>
+            <%= render "layouts/search" %>
           </li>
-        <% else %>
-          <li><%= link_to t(".login"), login_path %></li>
-        <% end %>
-        <li>
-          <%= render "layouts/search" %>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</header>
+        </ul>
+      </nav>
+    </div>
+  </header>
+<% end %>

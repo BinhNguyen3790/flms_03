@@ -1,15 +1,39 @@
 <% provide(:title, t(".books")) %>
-<div class="container">
-  <h1><%= t(".books") %></h1>
-  <%= form_tag admin_books_path, method: :GET do %>
-    <div class="active-cyan-4 mb-4">
-      <%= text_field_tag :search, params[:search], class: "form-control",
-        placeholder: t(".search") %>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-danger">
+      <div class="panel-heading">
+        <i class="fa fa-table fa-fw"></i> <%= t(".book_table") %>
+      </div>
+      <div class="panel">
+        <%= link_to t(".create"), new_admin_book_path, class: "btn btn-md btn-danger form-control" %>
+        <%= form_tag admin_books_path, method: :GET do %>
+          <div class="active-cyan-4 mb-4">
+            <%= text_field_tag :search, params[:search], class: "form-control",
+              placeholder: t(".search") %>
+          </div>
+        <% end %>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-hover" id="example">
+          <thead>
+            <tr>
+              <th><%= t ".image" %></th>
+              <th><%= t ".name" %></th>
+              <th><%= t ".author" %></th>
+              <th><%= t ".category" %></th>
+              <th><%= t ".publisher" %></th>
+              <th><%= t ".pages" %></th>
+              <th><%= t ".quantity" %></th>
+              <th colspan="2" ><%= t ".action" %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @books %>
+          </tbody>
+        </table>
+      </div>
     </div>
-  <% end %>
-  <%= link_to t(".create"), new_admin_book_path, class: "btn btn-lg btn-primary" %>
-  <ul class="books">
-    <%= render @books %>
-  </ul>
-  <%= will_paginate %>
+  </div>
 </div>
+<div class="row"><div class="text-center"><%= will_paginate %></div></div>

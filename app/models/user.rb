@@ -14,4 +14,5 @@ class User < ApplicationRecord
     length: {minimum: Settings.user.password}, allow_nil: true
   validates :phone, presence: true, length: {maximum: Settings.user.phone}
   validates :address, presence: true, length: {maximum: Settings.user.address}
+  scope :alphabet, ->{order name: :asc}
 end

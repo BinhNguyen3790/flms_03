@@ -1,0 +1,141 @@
+<% provide(:title, t(".admin")) %>
+<div class="row">
+  <div class="col-lg-8 col-sm-12">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-9">
+                <div class="huge">
+                  <%= get_users(:name).size %>
+                </div>
+                <div>
+                  <%= t(".user") %>
+                </div>
+              </div>
+              <div class="col-xs-3 text-right">
+                <i class="fa fa-user fa-5x"></i>
+              </div>
+            </div>
+          </div>
+          <%= link_to users_path do %>
+            <div class="panel-footer">
+              <span class="pull-left"><%= t(".details") %></span> <span class="pull-right"><i class=
+              "fa fa-arrow-circle-right"></i></span>
+              <div class="clearfix"></div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="panel panel-green">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-9">
+                <div class="huge">
+                  <%= get_requests(:name).size %>
+                </div>
+                <div>
+                  <%= t(".request") %>
+                </div>
+              </div>
+              <div class="col-xs-3 text-right">
+                <i class="fa fa-shopping-cart fa-5x"></i>
+              </div>
+            </div>
+          </div>
+            <%= link_to admin_requests_path do %>
+              <div class="panel-footer">
+                <span class="pull-left"><%= t(".details") %></span> <span class="pull-right"><i class=
+                "fa fa-arrow-circle-right"></i></span>
+                <div class="clearfix"></div>
+              </div>
+            <% end %>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="panel panel-yellow">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-9">
+                <div class="huge">
+                  <%= get_categories(:name).size %>
+                </div>
+                <div>
+                  <%= t(".category") %>
+                </div>
+              </div>
+              <div class="col-xs-3 text-right">
+                <i class="fa fa-laptop fa-5x"></i>
+              </div>
+            </div>
+          </div>
+            <%= link_to admin_categories_path do %>
+              <div class="panel-footer">
+                <span class="pull-left"><%= t(".details") %></span> <span class="pull-right"><i class=
+                "fa fa-arrow-circle-right"></i></span>
+                <div class="clearfix"></div>
+              </div>
+            <% end %>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="panel panel-red">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-9">
+                <div class="huge">
+                  <%= get_books(:name).size %>
+                </div>
+                <div>
+                  <%= t(".books") %>
+                </div>
+              </div>
+              <div class="col-xs-3 text-right">
+                <i class="fa fa-book fa-5x"></i>
+              </div>
+            </div>
+          </div>
+            <%= link_to admin_books_path do %>
+              <div class="panel-footer">
+                <span class="pull-left"><%= t(".details") %></span> <span class="pull-right"><i class=
+                "fa fa-arrow-circle-right"></i></span>
+                <div class="clearfix"></div>
+              </div>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-sm-12">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <i class="fa fa-bell fa-fw"></i> <%= t(".panel") %>
+      </div>
+      <div class="panel-body">
+        <div class="list-group">
+          <a class="list-group-item" href="#"><i class="fa fa-comment fa-fw"></i> <%= t(".user") %> <span class=
+          "pull-right text-muted small"><em><%= t(".time") %></em></span></a> <a class="list-group-item" href=
+          "#"><i class="fa fa-tasks fa-fw"></i> <%= t(".books") %> <span class="pull-right text-muted small"><em><%= t(".time") %></em></span></a> <a class="list-group-item" href="#"><i class="fa fa-upload fa-fw"></i>
+          <%= t(".category") %> <span class="pull-right text-muted small"><em><%= t(".time") %></em></span></a>
+          <a class="list-group-item" href="#"><i class="fa fa-bolt fa-fw"></i><%= t(".request") %><span class=
+          "pull-right text-muted small"><em>><%= t(".hour") %></em></span></a> <a class="list-group-item" href=
+          "#"><i class="fa fa-warning fa-fw"></i> <%= t(".server") %> <span class=
+          "pull-right text-muted small"><em><%= t(".hour") %></em></span></a>
+        </div><a class="btn btn-info btn-block" href="#"><%= t(".view") %></a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <i class="fa fa-line-chart fa-fw"></i> <%= t(".comment") %>
+      </div>
+      <p class="padd20"><%= t(".about") %></p>
+      <div id="line-chart" style="height:250px;"></div>
+    </div>
+  </div>
+</div>

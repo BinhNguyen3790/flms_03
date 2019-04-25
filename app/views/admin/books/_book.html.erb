@@ -1,8 +1,12 @@
-<li>
-  <%= link_to image_tag("bookstack.png",
-    alt: "Rails logo"), book %>
-  <%= link_to book.name, admin_book_path(book) %>
-  | <%= link_to t(".delete"), admin_book_path(book), method: :delete,
-      data: { confirm: t(".sure") } %>
-  | <%= link_to t(".edit"), edit_admin_book_path(book) %>
-</li>
+<tr>
+  <td ><%= book.image %></td>
+  <td><%= book.name %></td>
+  <td><%= book.author_name %></td>
+  <td><%= book.category_name %></td>
+  <td><%= book.publisher_name %></td>
+  <td><%= book.number_of_pages %></td>
+  <td><%= book.quantity %></td>
+  <td><%= link_to t(".delete"), admin_book_path(book), method: :delete,
+      data: { confirm: t(".sure") } %></td>
+  <td><%= link_to t(".edit"), edit_admin_book_path(book) %></td>
+</tr>
