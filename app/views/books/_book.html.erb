@@ -1,29 +1,11 @@
-<div class="col-md-2">
-  <div class="card mb-3">
-    <%= link_to image_tag("bookstack.png",
-      alt: "Rails logo"), book %>
-    <div class="card-body">
-      <h5 class="card-title"><%= link_to book.name, book %></h5>
-      <p class="card-text"><%= book.author_name %></p>
-      <p class="card-text">
-        <%= link_to request_path(book) do %>
-          <button type="button" class="btn btn-success btn-block">
-            <%= t(".cart") %>
-          </button>
-        <% end %>
-      </p>
-      <p>
-        <% if logged_in? %>
-          <%= link_to book_path(book) do %>
-            <button type="button" class="btn btn-danger btn-block">
-              <%= like?(book) ? t(".unlike") : t(".like") %>
-            </button>
-          <% end %>
-        <% end %>
-      </p>
-      <p class="card-text">
-        <small class="text-muted"><%= t(".update") %> <%= book.year %></small>
-      </p>
+<div class="col-xs-12 col-sm-6 col-md-2">
+  <%= link_to book do %>
+    <div href="#" class="thumbnail">
+      <%= image_tag(book.image) %>
+      <div class="caption">
+        <h6 class="title"><%= book.name %></h6>
+        <small class="card-text"><%= book.author_name %></small>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>

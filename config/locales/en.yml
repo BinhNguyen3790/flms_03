@@ -1,7 +1,10 @@
 en:
+  date:
+    formats:
+      date_month_year: "%d-%m-%Y"
   time:
     formats:
-      date_month_year: "%d-%m-%y"
+      date_month_year: "%d-%m-%Y"
   helpers:
     label:
       user:
@@ -117,8 +120,10 @@ en:
     application:
       title: "| Library Management"
     header:
+      books: "Books"
+      categories: "Categories"
       change: "Change Account"
-      menu: "Navigation Menu"
+      menu: "Navigation"
       all_alert: "See All Alerts"
       minute: "4 minutes ago"
       new_comment: "New Comment"
@@ -141,21 +146,30 @@ en:
       dashboard: "Dashboard"
       cart: "Cart"
     footer:
-      home: "The Library Management create by BinhNguyen"
+      home: "The Library Management"
       about: "About"
       contact: "Contact"
   static_pages:
     home:
+      welcome: "Welcome!"
+      sit: "Sit back, relax and explore some amazing Books!"
+      hello: "Hello there!"
+      about: "It is a long established fact that a reader will be distracted
+        by the readable content of a page when looking at its layout. The point
+        of using Lorem Ipsum is that it has a more-or-less normal distribution of
+        letters, as opposed to using 'Content here, content here', making it look
+        like readable English. Many desktop publishing packages and web page editors
+        now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum'
+        will uncover many web sites still in their infancy. Various versions have evolved
+        over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."
+      get: "Get in Touch"
+      send: "Send Message"
       request: "Request"
       all_request: "All Request"
       home: "Home"
-      heading1: "Welcome to the LIBRARY MANAGEMENT"
-      heading2: "This is the home page for the"
-      a: "LIBRARY MANAGEMENT"
-      last_heading2: "application."
       signup: "Sign up now!"
-      book: "See all books >"
-      category: "See all category >"
+      book: "See all Books"
+      category: "See all Categories"
       books: "Books"
       users: "Users"
       categories: "Categories"
@@ -164,16 +178,25 @@ en:
       all_category: "see all users"
     help:
       help: "Help"
-      heading: "Library Management"
-      paragraph: "This is the help page"
+      paragraph: "Please contact with us."
     contact:
+      contact: "Contact Us"
+      confirm:  "Please confirm the form below"
+      get: "Get in Touch"
+      send: "Send Message"
       contact: "Contact"
-      heading: "Library Management"
-      paragraph: "This is the contact page"
     about:
-      about: "About"
-      heading: "Library Management"
-      paragraph: "This is the about page"
+      about: "About Us"
+      follow: "Follow us"
+      hello: "Hello there!"
+      title: "It is a long established fact that a reader will be distracted
+        by the readable content of a page when looking at its layout. The point
+        of using Lorem Ipsum is that it has a more-or-less normal distribution of
+        letters, as opposed to using 'Content here, content here', making it look
+        like readable English. Many desktop publishing packages and web page editors
+        now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum'
+        will uncover many web sites still in their infancy. Various versions have evolved
+        over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."
   users:
     user:
       delete: "Delete"
@@ -189,6 +212,9 @@ en:
     create:
       success: "Welcome to the LIBRARY MANAGEMENT!"
     show:
+      following: "Following"
+      follower: "Follower"
+      borrow: "Books borrow"
       error: "This user could not be found"
     index:
       image: "Image"
@@ -239,7 +265,7 @@ en:
       cart: "Add to Cart"
     show:
       unlike: "Unlike"
-      like: "Like"
+      likes: "Like:"
       comment_book: "Comments"
       sure: "Are you sure?"
       error: "This book could not be found"
@@ -296,6 +322,7 @@ en:
       login: "Please login"
     form:
       add: "Add"
+      back: "Cancel"
   likes:
     destroy:
       success: "You unlike this book"
@@ -314,6 +341,7 @@ en:
       delete: "Delete"
       edit: "Edit"
     create:
+      login: "Please login"
       success: "Comment success"
       danger: "Comment faild"
     destroy:

@@ -5,22 +5,43 @@
     <td><%= request.book.author_name %></td>
     <td><%= request.quantity %></td>
     <td><span class="label label-success"><%= request.status %></span></td>
-    <td><%= request.from_date.strftime("%F") %></td>
-    <td><%= request.to_date.strftime("%F") %></td>
-    <td>
-      <%= link_to edit_request_path(request) do %>
-        <button class="btn btn-primary btn-block" type="button">
-          <%= t(".edit") %>
-        </button>
-      <% end %>
-    </td>
-    <td>
-      <%= link_to request_path(request), method: :delete,
-            data: {confirm: t(".sure")} do %>
-              <button class="btn btn-danger btn-block" type="button">
-                <%= t(".delete") %>
-              </button>
-      <% end %>
-    </td>
+    <td><%= l request.from_date, format: :date_month_year  %></td>
+    <td><%= l request.to_date, format: :date_month_year  %></td>
+    <% if request.pending? %>
+      <td>
+        <%= link_to edit_request_path(request) do %>
+          <button class="btn btn-primary btn-block" type="button">
+            <%= t(".edit") %>
+          </button>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to request_path(request), method: :delete,
+          data: {confirm: t(".sure")} do %>
+            <button class="btn btn-danger btn-block" type="button">
+              <%= t(".delete") %>
+            </button>
+        <% end %>
+      </td>
+    <% elsif request.accept? %>
+      <td>Get the book</td>
+      <td>You have 1 week</td>
+    <% else %>
+      <td>
+        <%= link_to books_path do %>
+          <button class="btn btn-primary btn-block" type="button">
+            <%= t(".Chose another book") %>
+          </button>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to request_path(request), method: :delete,
+          data: {confirm: t(".sure")} do %>
+            <button class="btn btn-danger btn-block" type="button">
+              <%= t(".delete") %>
+            </button>
+        <% end %>
+      </td>
+    <% end %>
   </tr>
 <% end %>

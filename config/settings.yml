@@ -33,5 +33,6 @@ request_detail:
 comment:
   content: 255
 static_page:
-  per_page: 6
+  per_page: 12
+  page: 6
 

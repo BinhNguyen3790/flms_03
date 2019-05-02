@@ -5,4 +5,7 @@ class Author < ApplicationRecord
   validates :name, presence: true, length: {maximum: Settings.author.name}
   validates :avatar, presence: true
   validates :profile, presence: true, length: {maximum: Settings.author.profile}
+  scope :alphabet, ->{order name: :asc}
+  scope :search_author,
+    ->(search){where("name like ?", "%#{search}%") if search.present?}
 end
