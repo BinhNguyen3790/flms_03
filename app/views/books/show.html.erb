@@ -12,49 +12,57 @@
   <div class="row">
 
     <div class="col-md-4">
-      <%= link_to image_tag("bookstack.png", alt: "Rails logo", width: "350") %>
+      <%= link_to image_tag("book.jpg") %>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-8">
       <h3 class="my-3">Book Details</h3>
-      <ul>
-        <li><%= t(".name") %> <%= @book.name%></li>
-        <li><%= t(".category") %> <%= @book.category_name%></li>
-        <li><%= t(".author") %> <%= @book.author_name%></li>
-        <li><%= t(".public") %> <%= @book.publisher_name%></li>
-        <li><%= t(".year") %> <%= @book.year %></li>
-        <li><%= t(".pages") %> <%= @book.number_of_pages %></li>
-        <li><%= t(".quantity") %> <%= @book.quantity %></li>
-        <li><%= t(".update") %> <%= @book.created_at %></li>
+      <ul class="list-group">
+        <li class="list-group-item"><%= t(".name") %> <%= @book.name %></li>
+        <li class="list-group-item"><%= t(".category") %> <%= @book.category_name %></li>
+        <li class="list-group-item"><%= t(".author") %> <%= @book.author_name %></li>
+        <li class="list-group-item"><%= t(".public") %> <%= @book.publisher_name %></li>
+        <li class="list-group-item"><%= t(".year") %> <%= l @book.year,
+          format: :date_month_year %>
+        </li>
+        <li class="list-group-item"><%= t(".pages") %> <%= @book.number_of_pages %></li>
+        <li class="list-group-item"><%= t(".quantity") %> <%= @book.quantity %></li>
+        <li class="list-group-item"><%= t(".update") %> <%= l @book.created_at,
+          format: :date_month_year %>
+        </li>
+        <li class="list-group-item"><%= t(".likes") %> <%= @book.likes.count %></li>
       </ul>
-      <%= link_to request_path(@book) do %>
-        <button class="btn btn-success btn-block" type="button">
-          <%= t(".cart") %>
-        </button>
-      <% end %>
-      <% if logged_in? %>
-        <% if like? @book %>
-          <%= link_to like_path(book_id: @book.id), method: :delete,
-            data: {confirm: t(".sure")} do %>
-            <button type="button" class="btn btn-danger btn-block">
-              <%= t(".unlike") %>
+      <div class="row">
+        <div class="col-md-4">
+          <%= link_to request_path(@book) do %>
+            <button class="btn btn-success btn-block" type="button">
+              <%= t(".cart") %>
             </button>
           <% end %>
-        <% else %>
-          <%= render "likes/like" %>
-        <% end %>
-      <% end %>
-      <button type="button" class="btn btn-primary btn-block">
-        <%= t(".follow") %>
-      </button>
-      <i><b><%= @book.likes.count %></b> <%= t ".likes" %></i>
-    </div>
-
-    <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+          <% if logged_in? %>
+            <% if like? @book %>
+              <%= link_to like_path(book_id: @book.id), method: :delete,
+                data: {confirm: t(".sure")} do %>
+                <button type="button" class="btn btn-danger btn-block">
+                  <%= t(".unlike") %>
+                </button>
+              <% end %>
+            <% else %>
+              <%= render "likes/like" %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="col-md-4">
+          <button type="button" class="btn btn-primary btn-block">
+            <%= t(".follow") %>
+          </button>
+        </div>
+      </div>
       <h3 class="my-3"><%= t(".about") %></h3>
       <p><%= @book.content %></p>
     </div>
-
   </div>
 
   <div class="row">
@@ -66,21 +74,9 @@
       </div>
     </div>
   </div>
-  <!-- /.row -->
-
-  <!-- Related Projects Row -->
   <h3 class="my-4"><%= t(".another") %></h3>
 
   <div class="row">
-    <% 4.times do %>
-      <div class="col-md-3 col-sm-6 mb-4">
-        <%= link_to image_tag("bookstack.png", alt: "Rails logo",
-          width: "280", height: "170") %>
-      </div>
-    <% end %>
-
+    <%= render @books %>
   </div>
-  <!-- /.row -->
-
 </div>
-<!-- /.container -->

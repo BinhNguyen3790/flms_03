@@ -8,7 +8,11 @@ class BooksController < ApplicationController
         per_page: Settings.book.per_page
   end
 
-  def show; end
+  def show
+    @books =
+      Book.search_book(params[:search]).newest.paginate page: params[:page],
+        per_page: Settings.static_page.page
+  end
 
   def load_book
     @book = Book.find_by id: params[:id]

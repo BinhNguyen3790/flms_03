@@ -66,27 +66,27 @@ module SessionsHelper
     redirect_to login_url
   end
 
-  def get_users name
+  def get_users _name
     User.alphabet
   end
 
-  def get_books name
+  def get_books _name
     Book.alphabet
   end
 
-  def get_requests name
+  def get_requests _name
     Request.alphabet
   end
 
-  def get_authors name
+  def get_authors _name
     Author.alphabet
   end
 
-  def get_categories name
+  def get_categories _name
     Category.alphabet
   end
 
-  def get_publishers name
+  def get_publishers _name
     Publisher.alphabet
   end
 end

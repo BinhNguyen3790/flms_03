@@ -1,22 +1,108 @@
 <% provide(:title, t(".home")) %>
-<div class="container">
-  <div class="center jumbotron">
-    <h1><%= t(".heading1") %></h1>
-    <h2>
-      <%= t(".heading2") %>
-      <a href="https://www.railstutorial.org/"><%= t(".a") %></a>
-      <%= t(".last_heading2") %>
-    </h2>
-    <% if logged_in? == false %>
-      <%= link_to t(".signup"), signup_path, class: "btn btn-lg btn-primary" %>
-    <% end %>
+<section id="home">
+  <header>
+    <div class="container">
+      <div class="header-content text-center">
+        <div class="header-content-inner">
+          <h1><%= t(".welcome") %></h1>
+          <hr>
+          <p><%= t(".sit") %></p>
+          <% if logged_in? == false %>
+            <%= link_to t(".signup"), signup_path, class: "btn btn-lg btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </header>
+</section>
+<!--end header section-->
+<section id="about">
+  <div class="container">
+    <div class="header-content text-center">
+      <div class="header-content-inner">
+        <h1><%= t(".hello") %></h1>
+        <hr>
+        <p class="lead"><%= t(".about") %></p>
+      </div>
+    </div>
   </div>
-  <h3><%= link_to t(".category"), categories_path %></h3>
-  <ul class="books">
-    <%= render @categories %>
-  </ul>
-  <h3><%= link_to t(".book"), books_path %></h3>
-  <ul class="books">
-    <%= render @books %>
-  </ul>
-</div>
+</section>
+<!--end about section-->
+<section id="portfolio">
+  <div class="container">
+    <div class="header-content text-center">
+      <div class="header-content-inner">
+        <h3><%= link_to t(".category"), categories_path %></h3>
+        <hr>
+      </div>
+      <div class="row">
+        <%= render @categories %>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="about">
+  <div class="container">
+    <div class="header-content text-center">
+      <div class="header-content-inner">
+        <h3><%= link_to t(".book"), books_path %></h3>
+        <hr>
+      </div>
+      <div class="row">
+        <%= render @books %>
+      </div>
+    </div>
+  </div>
+</section>
+<!--end portfolio section-->
+<section id="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading"><%= t(".get") %></h2>
+      </div>
+    </div>
+    <!--end second row-->
+    <div class="row">
+      <div class="col-lg-12">
+        <form name="sentMessage" id="contactForm" novalidate="">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Your Name" id="name" required="" data-validation-required-message="Please enter your name." aria-invalid="false">
+                <p class="help-block text-danger"></p>
+              </div>
+              <!--end form-group-->
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="Your Email *" id="email" required="" data-validation-required-message="Please enter your email address.">
+                <p class="help-block text-danger"></p>
+              </div>
+              <!--end form-group-->
+              <div class="form-group">
+                <input type="tel" class="form-control" placeholder="Your Phone *" id="phone" required="" data-validation-required-message="Please enter your phone number.">
+                <p class="help-block text-danger"></p>
+              </div>
+              <!--end form-group-->
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <textarea class="form-control" placeholder="Your Message *" id="message" required="" data-validation-required-message="Please enter a message." aria-invalid="false"></textarea>
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-lg-12 text-center">
+              <div id="success"></div>
+              <button type="submit" class="btn btn-xl"><%= t(".send") %></button>
+            </div>
+          </div>
+          <!--end row-->
+        </form>
+        <!--end form-->
+      </div>
+    </div>
+    <!--end first row-->
+  </div>
+  <!--end container -->
+</section>
+<!--end contact section-->

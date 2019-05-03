@@ -1,23 +1,27 @@
 <% provide(:title, t(".request")) %>
-<div class="container">
-  <h1><%= t(".request") %></h1>
-  <ul class="books"><table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col"><%= t(".book") %></th>
-      <th scope="col"><%= t(".category") %></th>
-      <th scope="col"><%= t(".author") %></th>
-      <th scope="col"><%= t(".quantity") %></th>
-      <th scope="col"><%= t(".status") %></th>
-      <th scope="col"><%= t(".from") %></th>
-      <th scope="col"><%= t(".to") %></th>
-      <th class="text-center" scope="col" colspan="2"><%= t(".action") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= render @requests %>
-  </tbody>
-</table>
-  </ul>
-  <%= will_paginate %>
-</div>
+<section id="portfolio">
+  <div class="container">
+    <div class="header-content text-center">
+    <h1><%= t(".request") %></h1>
+    <ul class="books">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col"><%= t(".book") %></th>
+          <th scope="col"><%= t(".category") %></th>
+          <th scope="col"><%= t(".author") %></th>
+          <th scope="col"><%= t(".quantity") %></th>
+          <th scope="col"><%= t(".status") %></th>
+          <th scope="col"><%= t(".from") %></th>
+          <th scope="col"><%= t(".to") %></th>
+          <th class="text-center" scope="col" colspan="2"><%= t(".action") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @requests %>
+      </tbody>
+    </table>
+    </ul>
+    <%= will_paginate %>
+  </div>
+</section>

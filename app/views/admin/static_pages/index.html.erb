@@ -8,7 +8,7 @@
             <div class="row">
               <div class="col-xs-9">
                 <div class="huge">
-                  <%= get_users(:name).size %>
+                  <%= get_users(:_name).size %>
                 </div>
                 <div>
                   <%= t(".user") %>
@@ -34,7 +34,7 @@
             <div class="row">
               <div class="col-xs-9">
                 <div class="huge">
-                  <%= get_requests(:name).size %>
+                  <%= get_requests(:_name).size %>
                 </div>
                 <div>
                   <%= t(".request") %>
@@ -60,7 +60,7 @@
             <div class="row">
               <div class="col-xs-9">
                 <div class="huge">
-                  <%= get_categories(:name).size %>
+                  <%= get_categories(:_name).size %>
                 </div>
                 <div>
                   <%= t(".category") %>
@@ -86,7 +86,7 @@
             <div class="row">
               <div class="col-xs-9">
                 <div class="huge">
-                  <%= get_books(:name).size %>
+                  <%= get_books(:_name).size %>
                 </div>
                 <div>
                   <%= t(".books") %>
@@ -115,14 +115,41 @@
       </div>
       <div class="panel-body">
         <div class="list-group">
-          <a class="list-group-item" href="#"><i class="fa fa-comment fa-fw"></i> <%= t(".user") %> <span class=
-          "pull-right text-muted small"><em><%= t(".time") %></em></span></a> <a class="list-group-item" href=
-          "#"><i class="fa fa-tasks fa-fw"></i> <%= t(".books") %> <span class="pull-right text-muted small"><em><%= t(".time") %></em></span></a> <a class="list-group-item" href="#"><i class="fa fa-upload fa-fw"></i>
-          <%= t(".category") %> <span class="pull-right text-muted small"><em><%= t(".time") %></em></span></a>
-          <a class="list-group-item" href="#"><i class="fa fa-bolt fa-fw"></i><%= t(".request") %><span class=
-          "pull-right text-muted small"><em>><%= t(".hour") %></em></span></a> <a class="list-group-item" href=
-          "#"><i class="fa fa-warning fa-fw"></i> <%= t(".server") %> <span class=
-          "pull-right text-muted small"><em><%= t(".hour") %></em></span></a>
+          <a class="list-group-item" href="#">
+            <i class="fa fa-comment fa-fw"></i>
+            <%= t(".user") %>
+            <span class="pull-right text-muted small">
+              <em><%= t(".time") %></em>
+            </span>
+          </a>
+          <a class="list-group-item" href="#">
+            <i class="fa fa-tasks fa-fw"></i>
+            <%= t(".books") %>
+            <span class="pull-right text-muted small">
+              <em><%= t(".time") %></em>
+            </span>
+          </a>
+          <a class="list-group-item" href="#">
+            <i class="fa fa-upload fa-fw"></i>
+            <%= t(".category") %>
+            <span class="pull-right text-muted small">
+              <em><%= t(".time") %></em>
+            </span>
+          </a>
+          <a class="list-group-item" href="#">
+            <i class="fa fa-bolt fa-fw"></i>
+            <%= t(".request") %>
+            <span class="pull-right text-muted small">
+              <em><%= t(".hour") %></em>
+            </span>
+          </a>
+          <a class="list-group-item" href="#">
+            <i class="fa fa-warning fa-fw"></i>
+            <%= t(".server") %>
+            <span class="pull-right text-muted small">
+              <em><%= t(".hour") %></em>
+            </span>
+          </a>
         </div><a class="btn btn-info btn-block" href="#"><%= t(".view") %></a>
       </div>
     </div>

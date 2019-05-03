@@ -1,11 +1,42 @@
 <%= provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </section>
-  </aside>
+<div class="login row">
+  <div class="col-md-5">
+    <div href="#" class="thumbnail">
+      <section class="user_info">
+        <h1><%= gravatar_for @user %></h1>
+        <ul class="list-group">
+          <li class="list-group-item">Name: <%= @user.name %></li>
+          <li class="list-group-item">Email: <%= @user.email %></li>
+          <li class="list-group-item">Phone: <%= @user.phone %></li>
+          <li class="list-group-item">Address: <%= @user.address %></li>
+        </ul>
+        <div class="row">
+          <div class="col-md-6">
+            <button class="btn btn-primary btn-block" type="button">
+              <%= t(".follower") %>
+            </button>
+          </div>
+          <div class="col-md-6">
+            <button class="btn btn-primary btn-block" type="button">
+              <%= t(".following") %>
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <div class="col-md-7">
+    <div href="#" class="thumbnail">
+      <section class="user_info">
+        <h3><%= t(".borrow") %></h3>
+        <ul class="list-group">
+          <li class="list-group-item"><%= @user.name %></li>
+          <li class="list-group-item"><%= @user.name %></li>
+          <li class="list-group-item"><%= @user.name %></li>
+          <li class="list-group-item"><%= @user.name %></li>
+          <li class="list-group-item"><%= @user.name %></li>
+        </ul>
+      </section>
+    </div>
+  </div>
 </div>
