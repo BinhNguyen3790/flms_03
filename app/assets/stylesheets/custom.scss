@@ -924,3 +924,11 @@ ul.social-buttons li a:active {
     box-shadow: -2px 3px 3px 1px rgba(0,0,0,0.75);
   }
 }
+
+.panel{
+  .col-md-2{
+    a{
+      margin: 8px 0;
+    }
+  }
+}

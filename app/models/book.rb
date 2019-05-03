@@ -24,4 +24,14 @@ class Book < ApplicationRecord
   def comments_newest
     comments.newest
   end
+
+  def self.to_csv
+    attributes = %w(id name content number_of_pages quantity)
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+      all.each do |book|
+        csv << attributes.map{|attr| book.send(attr)}
+      end
+    end
+  end
 end

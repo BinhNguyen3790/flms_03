@@ -6,6 +6,11 @@
         <i class="fa fa-table fa-fw"></i> <%= t(".user_table") %>
       </div>
       <div class="table-responsive">
+        <div class="row">
+          <div class="col-md-2">
+            <%= link_to t(".download"), users_path(format: "csv", search: params[:search]), class: "btn btn-md btn-success form-control" %>
+          </div>
+        </div>
         <table class="table table-hover" id="example">
           <thead>
             <tr>

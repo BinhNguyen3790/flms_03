@@ -43,6 +43,7 @@ en:
         success: "Saved"
         load_fail: "Load fails"
       index:
+        download: "Download"
         request: "Request"
         request_table: "Requests Table"
         book: "Book"
@@ -86,6 +87,7 @@ en:
         sure: "Are you sure?"
         edit: "Edit"
       index:
+        download: "Download"
         create: "Create"
         books: "Books"
         book_table: "Books Table"
@@ -217,6 +219,7 @@ en:
       borrow: "Books borrow"
       error: "This user could not be found"
     index:
+      download: "Download"
       image: "Image"
       name: "Name"
       email: "Email"
