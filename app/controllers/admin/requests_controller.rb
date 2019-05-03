@@ -6,6 +6,10 @@ class Admin::RequestsController < ApplicationController
   def index
     @requests = Request.newest.paginate page: params[:page],
       per_page: Settings.request.per_page
+    respond_to do |format|
+      format.html
+      format.csv{send_data Request.to_csv}
+    end
   end
 
   def update

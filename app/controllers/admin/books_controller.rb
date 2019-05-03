@@ -5,6 +5,10 @@ class Admin::BooksController < ApplicationController
     @books =
       Book.search_book(params[:search]).newest.paginate page: params[:page],
         per_page: Settings.book.per_page
+    respond_to do |format|
+      format.html
+      format.csv{send_data Book.to_csv}
+    end
   end
 
   def new
