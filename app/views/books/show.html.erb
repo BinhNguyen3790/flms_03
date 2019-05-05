@@ -10,12 +10,30 @@
 
   <!-- Portfolio Item Row -->
   <div class="row">
-
     <div class="col-md-4">
       <%= link_to image_tag("book.jpg") %>
+      <div class="rating">
+        <div><%= render "ratings/form" %></div>
+      </div>
     </div>
 
     <div class="col-md-8">
+      <div class="stars">
+        <% @book.avg_rating.to_i.times do  %>
+          <%= link_to do %>
+            <span class="fa fa-star checked"></span>
+          <% end %>
+        <% end %>
+        <span><%= @book.avg_rating %></span>
+        <% if logged_in? && rating?(@book) %>
+          <div>
+            <b><%= t "your_rate" %></b> <%= your_rating @book %>
+            <%= link_to do %>
+              <span class="fa fa-star checked"></span>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
       <h3 class="my-3">Book Details</h3>
       <ul class="list-group">
         <li class="list-group-item"><%= t(".name") %> <%= @book.name %></li>
@@ -64,7 +82,6 @@
       <p><%= @book.content %></p>
     </div>
   </div>
-
   <div class="row">
     <div class="col-md-12">
       <h3 class="my-3"><%= t(".comment_book") %></h3>

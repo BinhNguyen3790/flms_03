@@ -359,3 +359,10 @@ en:
     destroy:
       success: "Delete success"
       danger: "Delete faild"
+  ratings:
+    create:
+      success: "Rating success"
+      failed: "Please chose star"
+      login: "Please login"
+    form:
+      rate: "Rate"

@@ -6,6 +6,22 @@
         <h6 class="title"><%= book.name %></h6>
         <small class="card-text"><%= book.author_name %></small>
       </div>
+      <div class="rating">
+        <div class="stars">
+          <% if book.avg_rating == 0 %>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+          <% end %>
+          <% book.avg_rating.to_i.times do %>
+            <%= link_to do %>
+              <span class="fa fa-star checked"></span>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>

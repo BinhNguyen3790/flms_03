@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
-  before_action :load_book, :build_request, :build_like, :build_comment,
-    only: :show
+  before_action :load_book, :build_rating, :build_request, :build_like,
+    :build_comment, only: :show
 
   def index
     @books =
@@ -14,14 +14,14 @@ class BooksController < ApplicationController
         per_page: Settings.static_page.page
   end
 
+  private
+
   def load_book
     @book = Book.find_by id: params[:id]
     return if @book
     flash[:danger] = t ".error"
     redirect_to root_path
   end
-
-  private
 
   def build_request
     @request = @book.requests.new
@@ -33,5 +33,9 @@ class BooksController < ApplicationController
 
   def build_comment
     @comment = @book.comments.new
+  end
+
+  def build_rating
+    @rating = @book.ratings.new
   end
 end
