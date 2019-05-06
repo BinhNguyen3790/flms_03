@@ -35,4 +35,8 @@ comment:
 static_page:
   per_page: 12
   page: 6
-
+mail_default: "nguyenvanbinh3479@gmail.com"
+address: "smtp.gmail.com"
+port: 587
+domain: "localhost:3000"
+authentication: "plain"

@@ -13,6 +13,7 @@ class Request < ApplicationRecord
     ->(search){where "name like ?", "%#{search}%" if search.present?}
   delegate :name, to: :book, prefix: :book
   delegate :name, to: :user, prefix: :user
+  delegate :email, to: :user, prefix: :user
 
   def self.to_csv
     attributes = %w(id user_id book_id status from_date to_date quantity)

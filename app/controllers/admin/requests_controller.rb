@@ -14,6 +14,7 @@ class Admin::RequestsController < ApplicationController
 
   def update
     if @request.update_attributes request_params
+      RequestMailer.request_email(@request).deliver_later
       flash[:success] = t ".success"
       redirect_to admin_requests_path
     else
