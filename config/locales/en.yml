@@ -1,4 +1,13 @@
 en:
+  request_mailer:
+    request_email:
+      sun: "Sun Asterisk"
+      check: "Please check the information."
+      status: "Status:"
+      name: "Name of Book:"
+      quantity: "Quantity:"
+      from_date: "From date borrow:"
+      to_date: "End date borrow:"
   date:
     formats:
       date_month_year: "%d-%m-%Y"
