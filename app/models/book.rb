@@ -34,4 +34,8 @@ class Book < ApplicationRecord
       end
     end
   end
+
+  def update_avg_rating
+    update_attribute :avg_rating, ratings.sum(:rate) / ratings.count
+  end
 end

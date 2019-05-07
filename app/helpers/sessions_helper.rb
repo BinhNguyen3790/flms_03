@@ -59,6 +59,15 @@ module SessionsHelper
     current_user.comments.find_by(id: comment.id).present?
   end
 
+  def rating? book
+    current_user.ratings.find_by(book_id: book.id).present?
+  end
+
+  def your_rating book
+    my_rating = current_user.ratings.find_by book_id: book.id
+    my_rating.present? ? my_rating.rate : 0
+  end
+
   def logged_in_user
     return if logged_in?
     store_location

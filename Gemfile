@@ -17,6 +17,7 @@ gem "rubocop", "~> 0.54.0", require: false
 
 gem "bootstrap-will_paginate"
 gem "faker"
+gem "mail", "~> 2.7"
 gem "mysql2"
 gem "puma", "~> 3.11"
 gem "rails", "~> 5.2.2"

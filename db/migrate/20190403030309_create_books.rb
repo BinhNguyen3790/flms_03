@@ -10,6 +10,7 @@ class CreateBooks < ActiveRecord::Migration[5.2]
       t.date :year
       t.integer :number_of_pages
       t.integer :quantity
+      t.float :avg_rating, default: 0
       t.timestamps
     end
   end

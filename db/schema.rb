@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2019_04_09_084824) do
     t.date "year"
     t.integer "number_of_pages"
     t.integer "quantity"
+    t.float "avg_rating", default: 0.0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_books_on_author_id"
