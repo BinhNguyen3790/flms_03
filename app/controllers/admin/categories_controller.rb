@@ -3,9 +3,9 @@ class Admin::CategoriesController < ApplicationController
   before_action :admin_user, :logged_in_user, only: %i(new edit index destroy)
 
   def index
-    @categories =
-      Category.search_category(params[:search]).newest.paginate page: params[:page],
-        per_page: Settings.category.per_page
+    @search = Category.ransack params[:q]
+    @categories = @search.result.newest.paginate page: params[:page],
+      per_page: Settings.category.per_page
   end
 
   def show; end

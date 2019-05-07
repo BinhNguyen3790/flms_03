@@ -2,9 +2,9 @@ class Admin::BooksController < ApplicationController
   before_action :load_book, only: %i(destroy edit update show)
 
   def index
-    @books =
-      Book.search_book(params[:search]).newest.paginate page: params[:page],
-        per_page: Settings.book.per_page
+    @search = Book.ransack params[:q]
+    @books = @search.result.newest.paginate page: params[:page],
+      per_page: Settings.book.per_page
     respond_to do |format|
       format.html
       format.csv{send_data Book.to_csv}

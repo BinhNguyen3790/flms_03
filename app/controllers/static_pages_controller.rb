@@ -1,8 +1,7 @@
 class StaticPagesController < ApplicationController
+  before_action :search_book, only: %i(home help about contact)
+
   def home
-    @books =
-      Book.newest.paginate page: params[:page],
-        per_page: Settings.static_page.per_page
     @categories =
       Category.newest.paginate page: params[:page],
         per_page: Settings.static_page.page

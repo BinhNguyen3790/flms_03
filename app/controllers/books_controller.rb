@@ -3,14 +3,14 @@ class BooksController < ApplicationController
     :build_comment, only: :show
 
   def index
-    @books =
-      Book.search_book(params[:search]).newest.paginate page: params[:page],
-        per_page: Settings.book.per_page
+    @search = Book.ransack params[:q]
+    @books = @search.result.newest.paginate page: params[:page],
+      per_page: Settings.book.per_page
   end
 
   def show
-    @books =
-      Book.search_book(params[:search]).newest.paginate page: params[:page],
+    @search = Book.ransack params[:q]
+    @books = @search.result.newest.paginate page: params[:page],
         per_page: Settings.static_page.page
   end
 

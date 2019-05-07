@@ -19,8 +19,7 @@ class Book < ApplicationRecord
   delegate :name, to: :publisher, prefix: :publisher
   scope :newest, ->{order created_at: :desc}
   scope :alphabet, ->{order name: :asc}
-  scope :search_book,
-    ->(search){where("name like ?", "%#{search}%") if search.present?}
+
   def comments_newest
     comments.newest
   end

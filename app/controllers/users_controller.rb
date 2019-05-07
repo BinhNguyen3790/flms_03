@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   before_action :correct_user, only: %i(edit update)
   before_action :admin_user, only: :destroy
   before_action :is_admin?, only: :index
+  before_action :search_book, only: %i(new show edit)
 
   def show; end
 

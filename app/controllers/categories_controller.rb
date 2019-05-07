@@ -1,9 +1,9 @@
 class CategoriesController < ApplicationController
-  before_action :load_category, only: :show
+  before_action :load_category, :search_book, only: :show
 
   def index
-    @categories =
-      Category.newest.paginate page: params[:page],
+    @search = Category.ransack params[:q]
+    @categories = @search.result.paginate page: params[:page],
         per_page: Settings.category.per_page
   end
 
