@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-  before_action :logged_in_user, only: %i(show index create)
+  before_action :logged_in_user, :search_book, only: %i(show index create edit)
   before_action :load_book, only: :show
   before_action :load_request, only: %i(destroy edit update)
 
@@ -8,9 +8,8 @@ class RequestsController < ApplicationController
   end
 
   def index
-    @requests =
-      Request.search_request(params[:search]).newest.paginate page: params[:page],
-        per_page: Settings.request.per_page
+    @requests = Request.newest.paginate page: params[:page],
+      per_page: Settings.request.per_page
   end
 
   def create

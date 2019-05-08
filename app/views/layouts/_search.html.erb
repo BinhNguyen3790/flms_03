@@ -1,6 +1,5 @@
-<%= form_tag books_path, :method => "get" do %>
+<%= search_form_for @search do |f| %>
   <div class="active-cyan-4 mb-4">
-    <%= text_field_tag :search, params[:search], class: "form-control",
-      placeholder: t(".search") %>
+    <%= f.search_field :name_cont, class: "form-control", placeholder: t(".search") %>
   </div>
 <% end %>

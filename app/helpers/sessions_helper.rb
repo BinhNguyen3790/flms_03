@@ -75,6 +75,12 @@ module SessionsHelper
     redirect_to login_url
   end
 
+  def search_book
+    @search = Book.ransack params[:q]
+    @books = @search.result.newest.paginate page: params[:page],
+      per_page: Settings.static_page.per_page
+  end
+
   def get_users _name
     User.alphabet
   end

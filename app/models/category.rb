@@ -4,6 +4,4 @@ class Category < ApplicationRecord
   scope :newest, ->{order created_at: :desc}
   scope :alphabet, ->{order name: :asc}
   validates :image, presence: true
-  scope :search_category,
-    ->(search){where "name like ?", "%#{search}%" if search.present?}
 end

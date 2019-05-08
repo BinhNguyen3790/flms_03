@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :search_book, only: :new
   def new; end
 
   def create
