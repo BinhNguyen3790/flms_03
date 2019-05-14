@@ -6,6 +6,10 @@ class Admin::CategoriesController < ApplicationController
     @search = Category.ransack params[:q]
     @categories = @search.result.newest.paginate page: params[:page],
       per_page: Settings.category.per_page
+    respond_to do |format|
+      format.html
+      format.csv{send_data Category.to_csv}
+    end
   end
 
   def show; end
@@ -47,7 +51,7 @@ class Admin::CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit :name
+    params.require(:category).permit :name, :image
   end
 
   def logged_in_user

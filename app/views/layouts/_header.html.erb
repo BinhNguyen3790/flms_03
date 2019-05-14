@@ -103,12 +103,16 @@
               "glyphicon glyphicon-search"></span></a>
               <div class="panel-collapse collapse" id="search">
                 <div class="panel-body">
-                  <form class="navbar-form" role="search">
+                  <%= form_tag admin_books_path, method: :GET, class: "navbar-form",
+                    role: "search" do %>
                     <div class="form-group">
-                      <input class="form-control" placeholder="Search" type="text">
-                    </div><button class="btn btn-default" type="submit"><span class=
-                    "glyphicon glyphicon-ok"></span></button>
-                  </form>
+                      <%= text_field_tag :search, params[:search], class: "form-control",
+                        placeholder: t(".search") %>
+                    </div>
+                    <button class="btn btn-default" type="submit">
+                      <span class="glyphicon glyphicon-ok"></span>
+                    </button>
+                  <% end %>
                 </div>
               </div>
             </div>
@@ -117,37 +121,37 @@
             <ul class="nav navbar-nav">
               <li>
                 <%= link_to admin_root_path do %>
-                <span class="glyphicon glyphicon-list-alt"></span>
+                <span class="glyphicon glyphicon-dashboard"></span>
                   <%= t(".dashboard") %>
                 <% end %>
               </li>
               <li>
                 <%= link_to admin_requests_path do %>
-                <span class="glyphicon glyphicon-list-alt"></span>
+                <span class="glyphicon glyphicon-shopping-cart"></span>
                   <%= t(".cart") %>
                 <% end %>
               </li>
               <li>
                 <%= link_to users_path do %>
-                <span class="glyphicon glyphicon-envelope"></span>
+                <span class="glyphicon glyphicon-user"></span>
                   <%= t(".user") %>
                 <% end %>
               </li>
               <li>
                 <%= link_to admin_books_path do %>
-                <span class="glyphicon glyphicon-calendar"></span>
+                <span class=" glyphicon glyphicon-book"></span>
                   <%= t(".book") %>
                 <% end %>
               </li>
               <li>
                 <%= link_to admin_categories_path do %>
-                <span class="glyphicon glyphicon-film"></span>
+                <span class="glyphicon glyphicon-th"></span>
                   <%= t(".category") %>
                 <% end %>
               </li>
               <li>
                 <%= link_to current_user do %>
-                <span class="glyphicon glyphicon-envelope"></span>
+                <span class="glyphicon glyphicon-file"></span>
                   <%= t(".profile") %>
                 <% end %>
               </li><!-- Dropdown-->
@@ -158,13 +162,13 @@
                     <ul class="nav navbar-nav">
                       <li>
                         <%= link_to requests_path do %>
-                          <i class="fa fa-user fa-fw"></i>
+                          <i class="glyphicon glyphicon-shopping-cart"></i>
                           <%=  t(".cart") %>
                         <% end %>
                       </li>
                       <li>
                         <%= link_to current_user do %>
-                          <i class="fa fa-user fa-fw"></i>
+                          <i class="glyphicon glyphicon-file"></i>
                           <%=  t(".profile") %>
                         <% end %>
                       </li>
@@ -213,52 +217,52 @@
         <div class="clearfix"></div>
       </div>
 <% else %>
-<div>
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-          <!--end navbar-toggle -->
-          <%= link_to "", root_path, class: "navbar-brand" %>
-      </div>
-      <!--end nav header-->
-      <div class="collapse navbar-collapse pull-right" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li><%= link_to t(".home"), home_path %></li>
-          <li><%= link_to t(".books"), books_path %></li>
-          <li><%= link_to t(".categories"), categories_path %></li>
-          <% if logged_in? %>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <%= t(".account") %> <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><%= link_to t(".cart"), requests_path %></li>
-                <li><%= link_to t(".profile"), current_user %></li>
-                <li><%= link_to t(".setting"), edit_user_path(current_user) %></li>
-                <li class="divider"></li>
-                <li>
-                  <%= link_to t(".logout"), logout_path, method: :delete %>
-                </li>
-              </ul>
+  <div>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+            <!--end navbar-toggle -->
+            <%= link_to "", root_path, class: "navbar-brand" %>
+        </div>
+        <!--end nav header-->
+        <div class="collapse navbar-collapse pull-right" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li><%= link_to t(".home"), home_path %></li>
+            <li><%= link_to t(".books"), books_path %></li>
+            <li><%= link_to t(".categories"), categories_path %></li>
+            <% if logged_in? %>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <%= t(".account") %> <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to t(".cart"), requests_path %></li>
+                  <li><%= link_to t(".profile"), current_user %></li>
+                  <li><%= link_to t(".setting"), edit_user_path(current_user) %></li>
+                  <li class="divider"></li>
+                  <li>
+                    <%= link_to t(".logout"), logout_path, method: :delete %>
+                  </li>
+                </ul>
+              </li>
+            <% else %>
+              <li><%= link_to t(".login"), login_path %></li>
+            <% end %>
+            <li>
+              <%= render "layouts/search" %>
             </li>
-          <% else %>
-            <li><%= link_to t(".login"), login_path %></li>
-          <% end %>
-          <li>
-            <%= render "layouts/search" %>
-          </li>
-        </ul>
-        <!--end ul-->
+          </ul>
+          <!--end ul-->
+        </div>
+        <!--end collapse navbar-collapse-->
       </div>
-      <!--end collapse navbar-collapse-->
-    </div>
-    <!--end container-fluid-->
-  </nav>
-  <!--end nav-->
-</div>
+      <!--end container-fluid-->
+    </nav>
+    <!--end nav-->
+  </div>
 <% end %>
