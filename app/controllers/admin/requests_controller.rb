@@ -4,7 +4,8 @@ class Admin::RequestsController < ApplicationController
   before_action :logged_in_user, only: :index
 
   def index
-    @requests = Request.newest.paginate page: params[:page],
+    @search = Request.ransack params[:q]
+    @requests = @search.result.newest.paginate page: params[:page],
       per_page: Settings.request.per_page
     respond_to do |format|
       format.html

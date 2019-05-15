@@ -16,7 +16,11 @@
               search: params[:search]), class: "btn btn-md btn-success form-control" %>
           </div>
           <div class="col-md-8">
-            <%= render "layouts/search" %>
+            <%= search_form_for @search, url: admin_books_path do |f| %>
+              <div class="active-cyan-4 mb-4">
+                <%= f.search_field :name_cont, class: "form-control", placeholder: t(".search") %>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
@@ -31,7 +35,7 @@
               <th><%= t ".publisher" %></th>
               <th><%= t ".pages" %></th>
               <th><%= t ".quantity" %></th>
-              <th colspan="2" ><%= t ".action" %></th>
+              <th colspan="2" class="center"><%= t ".action" %></th>
             </tr>
           </thead>
           <tbody>

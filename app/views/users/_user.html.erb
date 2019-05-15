@@ -5,5 +5,9 @@
   <td><%= user.phone %></td>
   <td><%= user.address %></td>
   <td><span class="label label-success"><%= user.admin %></span></td>
-  <td><%= link_to t(".delete"), user, method: :delete, data: { confirm: t(".sure") } %></td>
+  <td>
+    <%= link_to user, method: :delete, data: { confirm: t(".sure") }, class: "btn btn-danger" do %>
+      <i class="fa fa-trash"> </i>
+    <% end %>
+  </td>
 </tr>

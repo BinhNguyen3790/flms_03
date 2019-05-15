@@ -13,7 +13,9 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.paginate page: params[:page], per_page: Settings.user.per_page
+    @search = User.ransack params[:q]
+    @users = @search.result.paginate page: params[:page],
+      per_page: Settings.user.per_page
     respond_to do |format|
       format.html
       format.csv{send_data User.to_csv}

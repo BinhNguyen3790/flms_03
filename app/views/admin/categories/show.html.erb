@@ -1,10 +1,22 @@
 <%= provide(:title, @category.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= @category.name %>
+<div class="login row">
+  <div class="col-md-10 col-md-offset-1">
+    <div href="#" class="thumbnail">
+      <h1 class="my-4">
+        <%= @category.name %><br/>
       </h1>
-    </section>
-  </aside>
+      <div class="row">
+
+        <div class="col-md-4">
+          <%= link_to image_tag("categories.jpg", alt: "Rails logo") %>
+        </div>
+
+        <div class="col-md-8">
+          <p><%= t(".name") %> <%= @category.name %></p>
+          <p><%= t(".create") %> <%= l @category.created_at, format: :date_month_year %></p>
+          <p><%= t(".update") %> <%= l @category.updated_at, format: :date_month_year %></p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

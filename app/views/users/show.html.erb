@@ -1,42 +1,86 @@
 <%= provide(:title, @user.name) %>
 <div class="login row">
-  <div class="col-md-5">
-    <div href="#" class="thumbnail">
-      <section class="user_info">
-        <h1><%= gravatar_for @user %></h1>
-        <ul class="list-group">
-          <li class="list-group-item">Name: <%= @user.name %></li>
-          <li class="list-group-item">Email: <%= @user.email %></li>
-          <li class="list-group-item">Phone: <%= @user.phone %></li>
-          <li class="list-group-item">Address: <%= @user.address %></li>
-        </ul>
+  <div class="col-md-12">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
         <div class="row">
-          <div class="col-md-6">
-            <button class="btn btn-primary btn-block" type="button">
-              <%= t(".follower") %>
-            </button>
+          <div class="col-xs-9">
+            <div class="huge">
+              Welcome <%= @user.name %>
+            </div>
           </div>
-          <div class="col-md-6">
-            <button class="btn btn-primary btn-block" type="button">
-              <%= t(".following") %>
-            </button>
+          <div class="col-xs-3 text-right">
+            <i class="fa fa-user fa-5x"></i>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-5">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <i class="fa fa-bell fa-fw"></i> <%= t(".user_info") %>
+      </div>
+      <div class="panel-body">
+        <section class="user_info">
+          <h1><%= gravatar_for @user %></h1>
+          <ul class="list-group">
+            <li class="list-group-item"><%= t(".name") %> <%= @user.name %></li>
+            <li class="list-group-item"><%= t(".email") %> <%= @user.email %></li>
+            <li class="list-group-item"><%= t(".phone") %> <%= @user.phone %></li>
+            <li class="list-group-item"><%= t(".address") %> <%= @user.address %></li>
+          </ul>
+          <div class="row">
+            <div class="col-md-6">
+              <button class="btn btn-primary btn-block" type="button">
+                <%= t(".follower") %>
+              </button>
+            </div>
+            <div class="col-md-6">
+              <button class="btn btn-primary btn-block" type="button">
+                <%= t(".following") %>
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
   </div>
   <div class="col-md-7">
-    <div href="#" class="thumbnail">
-      <section class="user_info">
-        <h3><%= t(".borrow") %></h3>
-        <ul class="list-group">
-          <li class="list-group-item"><%= @user.name %></li>
-          <li class="list-group-item"><%= @user.name %></li>
-          <li class="list-group-item"><%= @user.name %></li>
-          <li class="list-group-item"><%= @user.name %></li>
-          <li class="list-group-item"><%= @user.name %></li>
-        </ul>
-      </section>
+    <div class="panel panel-danger">
+      <div class="panel-heading">
+        <i class="fa fa-bell fa-fw"></i> <%= t(".notifications") %>
+      </div>
+      <div class="panel-body">
+        <div class="list-group">
+          <%= link_to books_path, class: "list-group-item" do %>
+            <i class="fa fa-book fa-fw"></i>
+            <%= t(".all_books") %>
+            <span class="pull-right text-muted small">
+              <em><%= get_books(:_name).size %></em>
+            </span>
+          <% end %>
+          <%= link_to categories_path, class: "list-group-item" do %>
+            <i class="fa fa-tasks fa-fw"></i>
+            <%= t(".all_categories") %>
+            <span class="pull-right text-muted small">
+              <em><%= get_categories(:_name).size %></em>
+            </span>
+          <% end %>
+          <%=  link_to requests_path, class: "list-group-item" do %>
+            <i class="fa fa-cart-arrow-down fa-fw"></i>
+            <%= t(".all_requests") %>
+            <span class="pull-right text-muted small">
+              <em><%= get_requests(:_name).size %></em>
+            </span>
+          <% end %>
+          <%= link_to edit_user_path(current_user), class: "list-group-item" do %>
+            <i class="fa fa-warning fa-fw"></i>
+            <%= t(".change_account") %>
+          <% end %>
+        </div>
+        <a class="btn btn-danger btn-block" href="#"><%= t(".view") %></a>
+      </div>
     </div>
   </div>
 </div>

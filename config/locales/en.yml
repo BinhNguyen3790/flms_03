@@ -52,6 +52,7 @@ en:
         success: "Saved"
         load_fail: "Load fails"
       index:
+        search: "Search Request"
         download: "Download"
         request: "Request"
         request_table: "Requests Table"
@@ -96,15 +97,23 @@ en:
         sure: "Are you sure?"
         edit: "Edit"
       index:
+        image: "Image"
+        name: "Name"
+        author: "Author"
+        category: "Category"
+        publisher: "Publisher"
+        pages: "Page"
+        quantity: "Quantity"
+        action: "Action"
         download: "Download"
-        create: "Create"
+        create: "Create Book"
         books: "Books"
         book_table: "Books Table"
         search: "Search Book"
     categories:
       category:
         edit: "Edit"
-        sure: "Are you sure?"
+        sure: "Are you sure? this will detete %{count} books"
       new:
         create: "Create Category"
       edit:
@@ -112,8 +121,13 @@ en:
         edit: "Edit Category"
         save: "Save"
       index:
+        download: "Download"
+        image: "Image"
+        name: "Name"
+        action: "Action"
+        category_table: "Categories Table"
         category: "Categories"
-        search: "Search category"
+        search: "Search Category"
         login: "Please login"
         create: "Create category"
       create:
@@ -125,12 +139,16 @@ en:
         error: "Delete failed"
       show:
         error: "Load failed"
+        name: "Name:"
+        create: "Create At:"
+        update: "Update At:"
   layouts:
     search:
       search: "Search"
     application:
       title: "| Library Management"
     header:
+      search: "Search Book"
       books: "Books"
       categories: "Categories"
       change: "Change Account"
@@ -223,11 +241,24 @@ en:
     create:
       success: "Welcome to the LIBRARY MANAGEMENT!"
     show:
+      name: "Name:"
+      email: "Email:"
+      phone: "Phone:"
+      address: "Address:"
+      all_books: "All Books"
+      all_categories: "All Categories"
+      all_requests: "All Requests"
+      change_account: "Change Account"
+      view: "View"
+      user_info: "User Information"
+      notifications: "Notifications"
       following: "Following"
       follower: "Follower"
       borrow: "Books borrow"
       error: "This user could not be found"
     index:
+      search: "Search User"
+      create: "Create User"
       download: "Download"
       image: "Image"
       name: "Name"

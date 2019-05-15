@@ -1,12 +1,20 @@
 <tr>
-  <td ><%= book.image %></td>
-  <td><%= book.name %></td>
+  <td><%= image_tag(book.image, alt: "Rails logo", width: "50") %></td>
+  <td><%= link_to book.name, admin_book_path(book) %></td>
   <td><%= book.author_name %></td>
   <td><%= book.category_name %></td>
   <td><%= book.publisher_name %></td>
   <td><%= book.number_of_pages %></td>
   <td><%= book.quantity %></td>
-  <td><%= link_to t(".delete"), admin_book_path(book), method: :delete,
-      data: { confirm: t(".sure") } %></td>
-  <td><%= link_to t(".edit"), edit_admin_book_path(book) %></td>
+  <td class="center">
+    <%= link_to edit_admin_book_path(book), class: "btn btn-primary" do %>
+      <i class="fa fa-pencil"> </i>
+    <% end %>
+  </td>
+  <td class="center">
+    <%= link_to admin_book_path(book), method: :delete,
+      data: { confirm: t(".sure") }, class: "btn btn-danger" do %>
+      <i class="fa fa-trash"> </i>
+    <% end %>
+  </td>
 </tr>

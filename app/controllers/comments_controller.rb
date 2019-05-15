@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :logged_in_user, only: %i(create edit)
-  before_action :load_comment, only: %i(edit update destroy)
+  before_action :load_comment, only: %i(edit destroy)
+  before_action :search_book, only: %i(edit update)
 
   def create
     @comment = current_user.comments.build comments_params
@@ -15,6 +16,8 @@ class CommentsController < ApplicationController
   def edit; end
 
   def update
+    @comment = Comment.find_by id: params[:id]
+    return unless @comment
     if @comment.update_attributes comments_params
       flash[:success] = t ".updated"
       redirect_to @comment.book
